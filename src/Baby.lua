@@ -5,7 +5,7 @@
 Baby = Class{}
 
 function Baby:init()
-	self.image = love.graphics.newImage('tempbaby.png')
+	self.image = love.graphics.newImage('graphics/tempbaby.png')
 	self.width = self.image:getWidth()
 	self.height = self.image:getHeight()
 

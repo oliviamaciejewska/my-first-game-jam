@@ -1,10 +1,6 @@
--- imports push library
-push = require 'push'
---imports class library
-Class = require 'class'
+--dependencies file
+require 'src/Dependencies'
 
---Baby Class
-require 'Baby'
 
 --physical screen dimensions
 WINDOW_WIDTH = 1280
@@ -14,10 +10,10 @@ WINDOW_HEIGHT = 720
 VIRTUAL_WIDTH = 512
 VIRTUAL_HEIGHT = 432
 
-local background = love.graphics.newImage('background.png')
+local background = love.graphics.newImage('graphics/background.png')
 local backgroundScroll = 0
 
-local ground = love.graphics.newImage('ground.png')
+local ground = love.graphics.newImage('graphics/ground.png')
 local groundScroll = 0
 
 local BACKGROUND_SCROLL_SPEED = 30
