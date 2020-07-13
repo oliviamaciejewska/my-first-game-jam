@@ -1,5 +1,5 @@
--- imports push library
-push = require 'push'
+--dependencies file
+require 'src/Dependencies'
 
 
 --physical screen dimensions
@@ -10,16 +10,18 @@ WINDOW_HEIGHT = 720
 VIRTUAL_WIDTH = 512
 VIRTUAL_HEIGHT = 432
 
-local background = love.graphics.newImage('background.png')
+local background = love.graphics.newImage('graphics/background.png')
 local backgroundScroll = 0
 
-local ground = love.graphics.newImage('ground.png')
+local ground = love.graphics.newImage('graphics/ground.png')
 local groundScroll = 0
 
 local BACKGROUND_SCROLL_SPEED = 60
 local GROUND_SCROLL_SPEED = 120
 
 local BACKGROUND_LOOPING_POINT = 1220
+
+local baby = Baby()
 
 function love.load()
 	love.graphics.setDefaultFilter('nearest', 'nearest')
@@ -58,6 +60,8 @@ function love.draw()
 	love.graphics.draw(background, -backgroundScroll, 0)
 
 	love.graphics.draw(ground, -groundScroll, VIRTUAL_HEIGHT - 192)
+
+	baby:render()
 
 	push:finish()
 end
