@@ -11,7 +11,18 @@ Class = require 'lib/class'
 Gamestate = require 'lib/gamestate'
 
 
---Baby class
+-- Utility
+require 'src/Util'
+
+
+-- general
+require 'src/Animation'
 require 'src/Baby'
 
+gTextures = {
+    ['baby-walk'] = love.graphics.newImage('graphics/babyspritesheet.png')
+}
 
+gFrames = {
+    ['baby-walk'] = GenererateQuads(gTextures['baby-walk'], 64, 96)
+}
