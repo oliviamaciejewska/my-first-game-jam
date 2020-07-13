@@ -34,7 +34,14 @@ function love.load()
 		resizable = true
 	})
 
+	sounds = {
+		['music'] = love.audio.newSource('sounds/music.mp3', 'static')
+	}
+
 	love.keyboard.keysPressed = {}
+
+	sounds['music']:setLooping(true)
+    sounds['music']:play()
 end
 
 function love.resize(w, h)

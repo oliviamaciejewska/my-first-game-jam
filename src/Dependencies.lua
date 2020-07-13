@@ -15,4 +15,3 @@ Gamestate = require 'lib/gamestate'
 require 'src/Baby'
 
 
-
