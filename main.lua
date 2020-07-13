@@ -1,6 +1,10 @@
 -- imports push library
 push = require 'push'
+--imports class library
+Class = require 'class'
 
+--Baby Class
+require 'Baby'
 
 --physical screen dimensions
 WINDOW_WIDTH = 1280
@@ -20,6 +24,8 @@ local BACKGROUND_SCROLL_SPEED = 30
 local GROUND_SCROLL_SPEED = 60
 
 local BACKGROUND_LOOPING_POINT = 1220
+
+local baby = Baby()
 
 function love.load()
 	love.graphics.setDefaultFilter('nearest', 'nearest')
@@ -58,6 +64,8 @@ function love.draw()
 	love.graphics.draw(background, -backgroundScroll, 0)
 
 	love.graphics.draw(ground, -groundScroll, VIRTUAL_HEIGHT - 192)
+
+	baby:render()
 
 	push:finish()
 end
