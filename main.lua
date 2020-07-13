@@ -40,7 +40,7 @@ function love.resize(w, h)
 end
 
 
-function love.keyboard(key)
+function love.keypressed(key)
 	if key == 'escape' then
 		love.event.quit()
 	end
