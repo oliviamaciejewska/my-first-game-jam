@@ -20,6 +20,6 @@ http://asherv.com/threes/threemails/#monster
 ### Big 'Ol Lists
 https://github.com/kobitoko/Game-Jam-Tools-Resources
 
-## Love2d Libs Used 
+### Love2d Libs Used 
 https://hump.readthedocs.io/en/latest/gamestate.html
 https://github.com/Ulydev/push
