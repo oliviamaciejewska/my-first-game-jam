@@ -19,10 +19,13 @@ require 'src/Util'
 require 'src/Animation'
 require 'src/Baby'
 
-gTextures = {
-    ['baby-walk'] = love.graphics.newImage('graphics/babyspritesheet.png')
-}
+--gTextures = {}
+--gFrames = {}
 
-gFrames = {
-    ['baby-walk'] = GenererateQuads(gTextures['baby-walk'], 64, 96)
-}
+--gTextures['baby-walk'] = love.graphics.newImage('graphics/babyspritesheet.png')
+
+--Frames['baby-walk'] = GenererateQuads(gTextures['baby-walk'], 64, 96)
+
+--moop attempt to fix
+babySheet = love.graphics.newImage('graphics/babyspritesheet.png')
+babyQuads = GenerateQuads(babySheet, 64, 96)
