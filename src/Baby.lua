@@ -1,5 +1,9 @@
 --[[
-	Baby class 
+	Baby class
+
+	Day3 - moop
+
+	-Collision function for objects
 ]]
 
 Baby = Class{}
@@ -31,9 +35,39 @@ function Baby:init()
 	
 end
 
+function Baby:goInvulnerable(duration)
+	self.invulnerable = true
+	self.invulnerableDuration = duration
+end
+
+function Baby:collides(object)
+
+	if (self.x + self.width) >= object.x and (self.x + self.width) <= object.x + object.width then
+		if self.y + self.height >= object.y + object.height - 16 and self.y + self.height <= object.y + object.height + 16  then
+			return true
+		end
+	end
+
+	return false
+
+end
+
 function Baby:update(dt)
 
-	self.currentAnimation:update(dt)
+	if self.invulnerable then
+		self.flashTimer = self.flashTimer + dt
+		self.invulnerableTimer = self.invulnerableTimer + dt
+
+		if self.invulnerableTimer > self.invulnerableDuration then
+			self.invulnerable = false
+			self.invulnerableTimer = 0
+			self.invulnerableDuration = 0
+			self.flashTimer = 0
+		end
+	end
+	if self.currentAnimation then
+		self.currentAnimation:update(dt)
+	end
 
 	if love.keyboard.wasPressed('w') and self.y > VIRTUAL_HEIGHT - 192 - self.height + 64 then
 		self.y = self.y - 32

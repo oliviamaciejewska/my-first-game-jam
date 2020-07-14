@@ -37,20 +37,26 @@ function PlayState:update(dt)
 		self.timer = 0
 	end
 
-	for k, pair in pairs(self.objects) do
+	for k, object in pairs(self.objects) do
 	--ensures previous toys still on screen are not slower than new toys that spawn
-		pair.dx = self.toySpeed
-		pair:update(dt)
+		object.dx = self.toySpeed
+		object:update(dt)
+
+		if self.baby:collides(object) and not self.baby.invulnerable then
+			--if object.solid == true then
+			self.baby:goInvulnerable(1.5)
+		end
 	end
 
-	for k, pair in pairs(self.objects) do
-		if pair.remove then
+	for k, object in pairs(self.objects) do
+		if object.remove then
 			table.remove(self.objects, k)
 		end
 	end
 
-
 	self.baby:update(dt)
+
+
 end
 
 function PlayState:render()
