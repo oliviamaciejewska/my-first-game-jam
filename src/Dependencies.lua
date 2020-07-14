@@ -42,6 +42,9 @@ babyQuads = GenerateQuads(babySheet, 64, 96)
 toyblocks = love.graphics.newImage('graphics/ToyBlocks.png')
 toyquads = GenerateQuads(toyblocks, 64, 64)
 
+
+healthBar = love.graphics.newImage('graphics/HealthBarSheet.png')
+healthQuads = GenerateQuads(healthBar, 96, 48)
 --moop fonts
 gFonts = {
 	['small'] = love.graphics.newFont('fonts/font.ttf', 8),

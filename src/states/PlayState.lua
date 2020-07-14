@@ -32,6 +32,22 @@ function PlayState:update(dt)
 end
 
 function PlayState:render()
+	local health = self.baby.health
+	--TODO: doesnt work yet without hard coding
+	local healthFrame = 4
+	
+	if health == 4 then
+		local healthFrame = 4
+	elseif health == 3 then
+		local healthFrame = 3
+	elseif health == 2 then
+		local healthFrame = 2
+	elseif health == 1 then
+		local healthFrame = 1
+	end
+
+	love.graphics.draw(healthBar, healthQuads[healthFrame],
+        0, 2)
 	local drawn = false
 
 	for k, pair in pairs(self.objects) do

@@ -22,7 +22,7 @@ function Baby:init()
 
 	self.currentAnimation = self.animation
 
-	self.heatlh = 8
+	self.health = 4
 	
 end
 

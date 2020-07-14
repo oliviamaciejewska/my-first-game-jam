@@ -98,7 +98,7 @@ function love.draw()
 	gStateMachine:render()
 	--moved baby to playstate
 	--baby:render()
-	gameobject:render()
+	--gameobject:render()
 
 	push:finish()
 end
