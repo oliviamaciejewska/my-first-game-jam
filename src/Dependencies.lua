@@ -13,11 +13,13 @@ Gamestate = require 'lib/gamestate'
 
 -- Utility
 require 'src/Util'
+require 'src/Constants'
 
 
 -- general
 require 'src/Animation'
 require 'src/Baby'
+require 'src/GameObject'
 
 --gTextures = {}
 --gFrames = {}
@@ -29,3 +31,7 @@ require 'src/Baby'
 --moop attempt to fix
 babySheet = love.graphics.newImage('graphics/babyspritesheet.png')
 babyQuads = GenerateQuads(babySheet, 64, 96)
+
+-- poot attempt to break
+toyblocks = love.graphics.newImage('graphics/ToyBlocks.png')
+toyquads = GenerateQuads(toyblocks, 64, 64)

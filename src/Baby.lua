@@ -13,7 +13,7 @@ function Baby:init()
 	self.x = VIRTUAL_WIDTH / 2 - (self.width / 2)
 	self.y = VIRTUAL_HEIGHT / 2 - (self.height / 2)
 
-	self.texture = 'baby-walk'
+	--self.texture = 'baby-walk'
 
 	self.animation = Animation {
 		frames = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16},

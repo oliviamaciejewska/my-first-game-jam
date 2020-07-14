@@ -1,14 +1,7 @@
 --dependencies file
 require 'src/Dependencies'
 
-
---physical screen dimensions
-WINDOW_WIDTH = 1280
-WINDOW_HEIGHT = 720
-
---virtual dimensions
-VIRTUAL_WIDTH = 512
-VIRTUAL_HEIGHT = 432
+-- Update 5 - poot - removed definitions here and put them in constants to declutter
 
 local background = love.graphics.newImage('graphics/background.png')
 local backgroundScroll = 0
@@ -16,11 +9,9 @@ local backgroundScroll = 0
 local ground = love.graphics.newImage('graphics/ground.png')
 local groundScroll = 0
 
-local BACKGROUND_SCROLL_SPEED = 60
-local GROUND_SCROLL_SPEED = 120
 
-local BACKGROUND_LOOPING_POINT = 1220
-
+local objects = {}
+local gameobject = GameObject()
 local baby = Baby()
 
 function love.load()
@@ -75,6 +66,19 @@ function love.update(dt)
 
 	baby:update(dt)
 
+	if math.random(10) <= 1 then
+		table.insert(objects, GameObject{
+			texture = toyblocks,
+			x = VIRTUAL_WIDTH,
+			y = 192,
+			--dx = -GROUND_SCROLL_SPEED,
+			width = 64,
+			height = 64
+		}) 
+	end
+
+	gameobject:update(dt)
+
 	love.keyboard.keysPressed = {}
 end
 
@@ -86,6 +90,7 @@ function love.draw()
 	love.graphics.draw(ground, -groundScroll, VIRTUAL_HEIGHT - 192)
 
 	baby:render()
+	gameobject:render()
 
 	push:finish()
 end

@@ -1,0 +1,18 @@
+--[[
+    Day2 Update 5 - poot
+
+    - keeping the main from getting messy so I break it less
+]]
+
+WINDOW_WIDTH = 1280
+WINDOW_HEIGHT = 720
+
+VIRTUAL_WIDTH = 512
+VIRTUAL_HEIGHT = 432
+
+BACKGROUND_SCROLL_SPEED = 60
+GROUND_SCROLL_SPEED = 120
+
+BACKGROUND_LOOPING_POINT = 1220
+
+BABY_MAX_HEALTH = 3
