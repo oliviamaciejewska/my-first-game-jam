@@ -15,9 +15,9 @@ function GameObject:init(def, y, dx)
     self.y = y
     self.dx = dx 
     self.dy = 0
-    self.width = 64
-    self.height = 64
-    self.texture = texture
+    self.width = def.width
+    self.height = def.height
+    self.texture = def.texture
     self.frame = 1
     self.rendered = false
 
@@ -45,7 +45,7 @@ function GameObject:update(dt)
 end
 
 function GameObject:render()
-    love.graphics.draw(gTextures['toy-blocks'], gFrames['toy-blocks'][1--[[self.currentAnimation:getCurrentFrame()]]],
+    love.graphics.draw(gTextures[self.texture], gFrames[self.texture][1--[[self.currentAnimation:getCurrentFrame()]]],
         self.x, self.y,
 		0, 1 or -1, 1)
 end

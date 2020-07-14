@@ -32,7 +32,8 @@ gTextures = {
 	['baby-walk'] = love.graphics.newImage('graphics/babyspritesheet.png'),
 	['health-bar'] = love.graphics.newImage('graphics/HealthBarSheet.png'),
 	['toy-blocks'] = love.graphics.newImage('graphics/ToyBlocks.png'),
-	['toy-truck'] = love.graphics.newImage('graphics/ToyTruck.png')
+	['toy-truck'] = love.graphics.newImage('graphics/ToyTruck.png'),
+	['baby-bottle'] = love.graphics.newImage('graphics/BabyBottle.png')
 }
 
 gFrames = {

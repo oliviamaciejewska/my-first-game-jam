@@ -1,6 +1,6 @@
 PlayState = Class{__includes = BaseState}
 
-local types = {'toy_blocks', 'toy_truck', 'baby_bottle', 'pacifier'}
+local types = {'toy_blocks', 'toy_truck'}
 
 local spawnLocations = {VIRTUAL_HEIGHT - 64, VIRTUAL_HEIGHT - 128, VIRTUAL_HEIGHT - 192}
 
@@ -14,19 +14,31 @@ function PlayState:init()
 end
 
 function PlayState:update(dt)
+	--location of spawning toys
 	local spawnIndex = math.random(3)
+
+	--toy spawning acceleration (so deltaX is not increasing as toy speed increases)
 	local toyPrevious = self.toySpeed
+	--toyspeed increases for each toy that spawns
 	self.toySpeed = self.toySpeed + OBJECT_ACCEL * dt 
-	
 	local spawnTime = ((128) * 2) / (self.toySpeed + toyPrevious)
 
+
+	--randomization of toys
+	local toyType = types[math.random(#types)]
+
+	--toy spawn
 	self.timer = self.timer + dt
 	if self.timer > spawnTime then
-		table.insert(self.objects, GameObject('toy_blocks', spawnLocations[spawnIndex], self.toySpeed))
+		table.insert(self.objects, GameObject (
+			GAME_OBJECT_DEFS[toyType],
+			spawnLocations[spawnIndex],
+			self.toySpeed))
 		self.timer = 0
 	end
 
 	for k, pair in pairs(self.objects) do
+	--ensures previous toys still on screen are not slower than new toys that spawn
 		pair.dx = self.toySpeed
 		pair:update(dt)
 	end
