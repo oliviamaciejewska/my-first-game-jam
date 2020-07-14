@@ -83,7 +83,7 @@ function love.update(dt)
 	--baby:update(dt)
 	gStateMachine:update(dt)
 
-	gameobject:update(dt)
+	--gameobject:update(dt)
 
 
 	love.keyboard.keysPressed = {}

@@ -12,7 +12,9 @@ VIRTUAL_HEIGHT = 432
 
 
 --[[
-    Day 3? Updat
+    Day 3? Update - moop
+    -added accelerating walls TODO: adjust to the right acceleration
+    -added accelerating objects
 ]]
 BACKGROUND_SCROLL_SPEED = 60
 GROUND_SCROLL_SPEED = 120
@@ -24,3 +26,4 @@ BACKGROUND_LOOPING_POINT = 1220
 BABY_MAX_HEALTH = 3
 
 OBJECT_SPEED = 60
+OBJECT_ACCEL = 5

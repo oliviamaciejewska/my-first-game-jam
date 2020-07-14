@@ -8,12 +8,12 @@
 
 GameObject = Class{}
 
-function GameObject:init(def, y)
+function GameObject:init(def, y, dx)
 
    -- self.type = def.type
     self.x = VIRTUAL_WIDTH
     self.y = y
-    self.dx = 0
+    self.dx = dx 
     self.dy = 0
     self.width = 64
     self.height = 64
@@ -36,8 +36,9 @@ end
 
 function GameObject:update(dt)
     --self.x = self.x + self.dx * dt
+    --self.dx = self.dx + OBJECT_ACCEL * dt
     if self.x > -self.width then
-        self.x = self.x - OBJECT_SPEED * dt
+        self.x = self.x - self.dx * dt - ((OBJECT_ACCEL * dt * dt) / 2)
     else
         self.remove = true
     end

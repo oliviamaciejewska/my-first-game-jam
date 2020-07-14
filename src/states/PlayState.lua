@@ -2,22 +2,32 @@ PlayState = Class{__includes = BaseState}
 
 local types = {'toy_blocks', 'toy_truck', 'baby_bottle', 'pacifier'}
 
+local spawnLocations = {VIRTUAL_HEIGHT - 64, VIRTUAL_HEIGHT - 128, VIRTUAL_HEIGHT - 192}
+
 function PlayState:init()
 	self.baby = Baby()
 	self.timer = 0
 
 	self.objects = {}
+
+	self.toySpeed = 10
 end
 
 function PlayState:update(dt)
-	local timeToSpawn = math.random(4)
+	local spawnIndex = math.random(3)
+	local toyPrevious = self.toySpeed
+	self.toySpeed = self.toySpeed + OBJECT_ACCEL * dt 
+	
+	local spawnTime = ((128) * 2) / (self.toySpeed + toyPrevious)
+
 	self.timer = self.timer + dt
-	if self.timer > timeToSpawn then
-		table.insert(self.objects, GameObject('toy_blocks', math.random((VIRTUAL_HEIGHT / 2 + 192), (VIRTUAL_HEIGHT / 2))))
+	if self.timer > spawnTime then
+		table.insert(self.objects, GameObject('toy_blocks', spawnLocations[spawnIndex], self.toySpeed))
 		self.timer = 0
 	end
 
-	for k, pair in pairs(self.objects) do 
+	for k, pair in pairs(self.objects) do
+		pair.dx = self.toySpeed
 		pair:update(dt)
 	end
 
