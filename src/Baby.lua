@@ -13,7 +13,8 @@ function Baby:init()
 	self.x = VIRTUAL_WIDTH / 2 - (self.width / 2)
 	self.y = VIRTUAL_HEIGHT / 2 + (self.height / 2)
 
-	--self.texture = 'baby-walk'
+	self.texture = 'baby-walk'
+	
 
 	self.animation = Animation {
 		frames = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16},
@@ -21,6 +22,10 @@ function Baby:init()
 	}
 
 	self.currentAnimation = self.animation
+	self.invulnerable = false
+	self.invulnerableDuration = 0
+	self.invulnerableTimer = 0
+	self.flashTimer = 0
 
 	self.health = 4
 	
@@ -38,8 +43,12 @@ function Baby:update(dt)
 end
 
 function Baby:render()
+	if self.invulnerable and self.flashTimer > 0.06 then
+        self.flashTimer = 0
+        love.graphics.setColor(255, 255, 255, 64)
+    end
 	--love.graphics.draw(self.image, self.x, self.y)
-	love.graphics.draw(babySheet, babyQuads[self.currentAnimation:getCurrentFrame()],
+	love.graphics.draw(gTextures[self.texture], gFrames[self.texture][self.currentAnimation:getCurrentFrame()],
         self.x, self.y,
 		0, 1 or -1, 1)
 end

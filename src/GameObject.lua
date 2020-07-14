@@ -45,7 +45,7 @@ function GameObject:update(dt)
 end
 
 function GameObject:render()
-    love.graphics.draw(toyblocks, toyquads[1--[[self.currentAnimation:getCurrentFrame()]]],
+    love.graphics.draw(gTextures['toy-blocks'], gFrames['toy-blocks'][1--[[self.currentAnimation:getCurrentFrame()]]],
         self.x, self.y,
 		0, 1 or -1, 1)
 end

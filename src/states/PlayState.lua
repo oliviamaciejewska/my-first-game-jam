@@ -56,7 +56,7 @@ function PlayState:render()
 		local healthFrame = 1
 	end
 
-	love.graphics.draw(healthBar, healthQuads[healthFrame],
+	love.graphics.draw(gTextures['health-bar'], gFrames['health-bar'][healthFrame],
         0, 2)
 	local drawn = false
 

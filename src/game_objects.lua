@@ -11,7 +11,7 @@ GAME_OBJECT_DEFS = {
         texture = 'toyblocks',
         frame = 1,
         width = 64,
-        height = 64
+        height = 64,
         -- Stuff to add in later
         solid = true,
         consumable = false,
@@ -20,7 +20,7 @@ GAME_OBJECT_DEFS = {
     },
 
     ['toy_truck'] = {
-        type = 'toy_truck'
+        type = 'toy_truck',
         texture = 'toytruck',
         frame = 1,
         width = 64,
@@ -33,14 +33,15 @@ GAME_OBJECT_DEFS = {
     ['baby_bottle'] = {
         type = 'baby_bottle',
         texture = 'baby_bottle',
-        frame 1,
+        frame = 1,
         width = 32,
         height = 32,
         solid = false,
         consumable = true,
         breakable = false
 
-    },
+    }
+    --[[,
 
     ['pacifier'] = {
         type = 'pacifier',
@@ -52,5 +53,5 @@ GAME_OBJECT_DEFS = {
         consumable = true,
         breakable = false
 
-    }
+    }]]
 }
