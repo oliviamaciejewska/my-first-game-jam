@@ -11,7 +11,7 @@ function Baby:init()
 	--self.baby = baby
 	
 	self.x = VIRTUAL_WIDTH / 2 - (self.width / 2)
-	self.y = VIRTUAL_HEIGHT / 2 - (self.height / 2)
+	self.y = VIRTUAL_HEIGHT / 2 + (self.height / 2)
 
 	--self.texture = 'baby-walk'
 
@@ -21,6 +21,8 @@ function Baby:init()
 	}
 
 	self.currentAnimation = self.animation
+
+	self.heatlh = 8
 	
 end
 

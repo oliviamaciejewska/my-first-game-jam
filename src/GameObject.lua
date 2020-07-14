@@ -8,17 +8,18 @@
 
 GameObject = Class{}
 
-function GameObject:init(def, x, y)
+function GameObject:init(def, y)
 
    -- self.type = def.type
-    self.x = x
+    self.x = VIRTUAL_WIDTH
     self.y = y
     self.dx = 0
     self.dy = 0
-    self.width = width--def.width
-    self.height = height
+    self.width = 64
+    self.height = 64
     self.texture = texture
     self.frame = 1
+    self.rendered = false
 
     --[[self.state = self.defaultState
     self.states = def.states
@@ -35,6 +36,11 @@ end
 
 function GameObject:update(dt)
     --self.x = self.x + self.dx * dt
+    if self.x > -self.width then
+        self.x = self.x - OBJECT_SPEED * dt
+    else
+        self.remove = true
+    end
 end
 
 function GameObject:render()

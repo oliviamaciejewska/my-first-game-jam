@@ -1,8 +1,9 @@
 --dependencies file
 require 'src/Dependencies'
-
+require 'src/states/BaseState'
 -- Update 5 - poot - removed definitions here and put them in constants to declutter
 
+--Update IDK - moop - moved graphics to start state (attempt at states)
 local background = love.graphics.newImage('graphics/background.png')
 local backgroundScroll = 0
 
@@ -12,7 +13,11 @@ local groundScroll = 0
 
 local objects = {}
 local gameobject = GameObject()
-local baby = Baby()
+
+local fps = love.timer.getFPS( )
+
+--moved baby to play state: moop
+--local baby = Baby()
 
 function love.load()
 	love.graphics.setDefaultFilter('nearest', 'nearest')
@@ -24,15 +29,23 @@ function love.load()
 		fullscreen = false,
 		resizable = true
 	})
+	
 
 	sounds = {
 		['music'] = love.audio.newSource('sounds/music.mp3', 'static')
 	}
 
-	love.keyboard.keysPressed = {}
-
 	sounds['music']:setLooping(true)
     sounds['music']:play()
+
+    gStateMachine = StateMachine {
+        ['start'] = function() return StartState() end,
+        ['play'] = function() return PlayState() end
+		}
+    gStateMachine:change('start')
+
+
+	love.keyboard.keysPressed = {}
 end
 
 function love.resize(w, h)
@@ -64,20 +77,11 @@ function love.update(dt)
 	groundScroll = (groundScroll + GROUND_SCROLL_SPEED * dt)
 		%VIRTUAL_WIDTH
 
-	baby:update(dt)
-
-	if math.random(10) <= 1 then
-		table.insert(objects, GameObject{
-			texture = toyblocks,
-			x = VIRTUAL_WIDTH,
-			y = 192,
-			--dx = -GROUND_SCROLL_SPEED,
-			width = 64,
-			height = 64
-		}) 
-	end
+	--baby:update(dt)
+	gStateMachine:update(dt)
 
 	gameobject:update(dt)
+
 
 	love.keyboard.keysPressed = {}
 end
@@ -89,7 +93,11 @@ function love.draw()
 
 	love.graphics.draw(ground, -groundScroll, VIRTUAL_HEIGHT - 192)
 
-	baby:render()
+	love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), 10, 10)
+
+	gStateMachine:render()
+	--moved baby to playstate
+	--baby:render()
 	gameobject:render()
 
 	push:finish()

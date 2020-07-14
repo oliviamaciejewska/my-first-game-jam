@@ -32,7 +32,7 @@ GAME_OBJECT_DEFS = {
 
     ['baby_bottle'] = {
         type = 'baby_bottle',
-        texture = ,
+        texture = 'baby_bottle',
         frame 1,
         width = 32,
         height = 32,

@@ -15,6 +15,7 @@ https://www.shockwave-sound.com/blog/things-to-consider-when-scoring-for/
 
 ### Nightime Read
 http://asherv.com/threes/threemails/#monster
+https://stackoverflow.com/questions/11300194/procedural-generation-of-spaceship-sprites
 
 
 ### Big 'Ol Lists
@@ -23,3 +24,7 @@ https://github.com/kobitoko/Game-Jam-Tools-Resources
 ### Love2d Libs Used 
 https://hump.readthedocs.io/en/latest/gamestate.html
 https://github.com/Ulydev/push
+
+### Assets
+https://www.fontspace.com/count-and-spell-font-f23523
+https://www.fontspace.com/blus-blocks-font-f4346
