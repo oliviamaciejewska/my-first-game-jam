@@ -60,6 +60,13 @@ toyquads = GenerateQuads(toyblocks, 64, 64)
 healthBar = love.graphics.newImage('graphics/HealthBarSheet.png')
 healthQuads = GenerateQuads(healthBar, 96, 48)
 ]]
+
+gSounds = {
+	['music'] = love.audio.newSource('sounds/music.mp3', 'static'),
+	['cry'] = love.audio.newSource('sounds/cry.wav')
+}
+
+
 --moop fonts
 gFonts = {
 	['small'] = love.graphics.newFont('fonts/font.ttf', 8),

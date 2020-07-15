@@ -32,12 +32,8 @@ function love.load()
 	})
 	
 
-	sounds = {
-		['music'] = love.audio.newSource('sounds/music.mp3', 'static')
-	}
-
-	sounds['music']:setLooping(true)
-    sounds['music']:play()
+	gSounds['music']:setLooping(true)
+    gSounds['music']:play()
 
     gStateMachine = StateMachine {
         ['start'] = function() return StartState() end,

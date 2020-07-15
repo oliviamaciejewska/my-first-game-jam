@@ -43,7 +43,9 @@ function PlayState:update(dt)
 		object:update(dt)
 
 		if self.baby:collides(object) and not self.baby.invulnerable then
+			
 			--if object.solid == true then
+			gSounds['cry']:play()
 			self.baby:goInvulnerable(1.5)
 		end
 	end
