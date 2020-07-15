@@ -21,7 +21,7 @@ function PlayState:update(dt)
 	local toyPrevious = self.toySpeed
 	--toyspeed increases for each toy that spawns
 	self.toySpeed = self.toySpeed + OBJECT_ACCEL * dt 
-	local spawnTime = ((128) * 2) / (self.toySpeed + toyPrevious)
+	local spawnTime = ((160) * 2) / (self.toySpeed + toyPrevious)
 
 
 	--randomization of toys
@@ -43,7 +43,7 @@ function PlayState:update(dt)
 		object:update(dt)
 
 		if self.baby:collides(object) and not self.baby.invulnerable then
-			
+			self.baby:damage()
 			--if object.solid == true then
 			gSounds['cry']:play()
 			self.baby:goInvulnerable(1.5)
@@ -62,34 +62,35 @@ function PlayState:update(dt)
 end
 
 function PlayState:render()
-	local health = self.baby.health
-	--TODO: doesnt work yet without hard coding
-	local healthFrame = 4
-	
-	if health == 4 then
-		local healthFrame = 4
-	elseif health == 3 then
-		local healthFrame = 3
-	elseif health == 2 then
-		local healthFrame = 2
-	elseif health == 1 then
-		local healthFrame = 1
-	end
-
-	love.graphics.draw(gTextures['health-bar'], gFrames['health-bar'][healthFrame],
-        0, 2)
-	local drawn = false
-
 	for k, pair in pairs(self.objects) do
 		pair:render()
 		if pair.y + 64 < self.baby.y + 96 then
 			pair.rendered = true
 		end
 	end
+
 	self.baby:render()
 	for i, pair in pairs(self.objects) do
 		if not pair.rendered then
 			pair:render()
 		end
 	end
+
+	local health = self.baby.health
+
+	if health == 4 then
+		healthFrame = 4
+	elseif health == 3 then
+		healthFrame = 3
+	elseif health == 2 then
+		healthFrame = 2
+	elseif health == 1 then
+		healthFrame = 1
+	end
+
+	
+	love.graphics.draw(gTextures['health-bar'], gFrames['health-bar'][healthFrame],
+        0, 2)
+	local drawn = false
+
 end

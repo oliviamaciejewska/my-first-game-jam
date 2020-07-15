@@ -14,7 +14,7 @@ function Baby:init()
 	self.height = 96--self.image:getHeight()
 	--self.baby = baby
 	
-	self.x = VIRTUAL_WIDTH / 2 - (self.width / 2)
+	self.x = VIRTUAL_WIDTH / 4 + (self.width / 2)
 	self.y = VIRTUAL_HEIGHT / 2 + (self.height / 2)
 
 	self.texture = 'baby-walk'
@@ -33,6 +33,12 @@ function Baby:init()
 
 	self.health = 4
 	
+end
+
+function Baby:damage()
+	if self.health > 0 then
+		self.health = self.health - 1
+	end
 end
 
 function Baby:goInvulnerable(duration)
@@ -79,7 +85,7 @@ end
 function Baby:render()
 	if self.invulnerable and self.flashTimer > 0.06 then
         self.flashTimer = 0
-        love.graphics.setColor(255 or 1, 255 or 1, 255 or 1, 64 or 0.25)
+        love.graphics.setColor(255, 255, 255, 64)
     end
 	--love.graphics.draw(self.image, self.x, self.y)
 	love.graphics.draw(gTextures[self.texture], gFrames[self.texture][self.currentAnimation:getCurrentFrame()],
