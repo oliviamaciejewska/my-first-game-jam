@@ -23,7 +23,7 @@ local fps = love.timer.getFPS( )
 function love.load()
 	love.graphics.setDefaultFilter('nearest', 'nearest')
 
-	love.window.setTitle('Diaper Change')
+	love.window.setTitle('Dia(per Change) Hard 3: A Xmas Movie')
 
 	push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
 		vsync = true,
