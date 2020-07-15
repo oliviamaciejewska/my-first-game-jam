@@ -32,7 +32,8 @@ require 'src/states/baby/BabyDodgeState'
 
 
 gTextures = {
-	['baby-walk'] = love.graphics.newImage('graphics/babyspritesheet.png'),
+	['walk'] = love.graphics.newImage('graphics/babyspritesheet.png'),
+	['dodge'] = love.graphics.newImage('graphics/babydodgesheet1.png'),
 	['health-bar'] = love.graphics.newImage('graphics/HealthBarSheet.png'),
 	['toy-blocks'] = love.graphics.newImage('graphics/ToyBlocks.png'),
 	['toy-truck'] = love.graphics.newImage('graphics/ToyTruck.png'),
@@ -45,7 +46,8 @@ gTextures = {
 }
 
 gFrames = {
-	['baby-walk'] = GenerateQuads(gTextures['baby-walk'], 64, 96),
+	['walk'] = GenerateQuads(gTextures['walk'], 64, 96),
+	['dodge'] = GenerateQuads(gTextures['dodge'], 128, 96),
 	['toy-truck'] = GenerateQuads(gTextures['toy-truck'], 64, 64),
 	['toy-blocks'] = GenerateQuads(gTextures['toy-blocks'], 64, 64),
 	['health-bar'] = GenerateQuads(gTextures['health-bar'], 96, 48),

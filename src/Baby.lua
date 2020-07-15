@@ -8,7 +8,7 @@
 
 Baby = Class{}
 
-function Baby:init()
+function Baby:init(def)
 	--self.image = love.graphics.newImage('graphics/tempbaby.png')
 	self.width = 64--self.image:getWidth()
 	self.height = 96--self.image:getHeight()
@@ -17,13 +17,15 @@ function Baby:init()
 	self.x = VIRTUAL_WIDTH / 4 + (self.width / 2)
 	self.y = VIRTUAL_HEIGHT / 2 + (self.height / 2)
 
-	self.texture = 'baby-walk'
+	self.texture = 'walk'
 	
 
 	self.animation = Animation {
 		frames = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16},
 		interval = 0.08
 	}
+	
+	self.stateMachine = def.stateMachine
 
 	self.currentAnimation = self.animation
 	self.invulnerable = false
@@ -34,7 +36,7 @@ function Baby:init()
 	self.health = 4
 	-- to add
 	-- self.score = 0
-
+	--self:changeState('walk')
 	
 end
 
@@ -52,13 +54,24 @@ end
 function Baby:collides(object)
 
 	if (self.x + self.width) >= object.x and (self.x + self.width) <= object.x + object.width then
-		if self.y + self.height >= object.y + object.height - 16 and self.y + self.height <= object.y + object.height + 16  then
-			return true
+		if object.solid then
+			if self.y + self.height >= object.y + object.height - 16 and self.y + self.height <= object.y + object.height + 16  then
+				return true
+			end
+		else
+			if self.y + self.height >= object.y + object.height - 4 and self.y <= object.y + 4 then
+				return true
+			end
 		end
 	end
 
 	return false
 
+end
+
+function Baby:changeState(state, params)
+
+	self.stateMachine:change(state, params)
 end
 
 function Baby:update(dt)
@@ -78,11 +91,8 @@ function Baby:update(dt)
 		self.currentAnimation:update(dt)
 	end
 
-	if love.keyboard.wasPressed('w') and self.y > VIRTUAL_HEIGHT - 192 - self.height + 64 then
-		self.y = self.y - 32
-	elseif love.keyboard.wasPressed('s') and self.y + self.height < VIRTUAL_HEIGHT - 32 then
-		self.y = self.y + 32
-	end
+	self.stateMachine:update(dt)
+
 end
 
 function Baby:render()

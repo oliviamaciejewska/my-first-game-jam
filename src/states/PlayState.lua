@@ -6,13 +6,20 @@ local healtypes = {'baby_bottle', 'pacifier'}
 local spawnLocations = {VIRTUAL_HEIGHT - 64, VIRTUAL_HEIGHT - 96, VIRTUAL_HEIGHT - 128, VIRTUAL_HEIGHT - 160, VIRTUAL_HEIGHT - 192}
 
 function PlayState:init()
-	self.baby = Baby()
+	self.baby = Baby({
+		stateMachine = StateMachine {
+		['walk'] = function() return BabyWalkState(self.baby) end,
+		['dodge'] = function() return BabyDodgeState(self.baby) end
+		}
+})
 	self.timer = 0
 	self.healtimer = 0
 
 	self.objects = {}
 
 	self.toySpeed = 10
+
+	self.baby:changeState('walk')
 end
 
 function PlayState:update(dt)
