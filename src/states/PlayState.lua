@@ -1,6 +1,6 @@
 PlayState = Class{__includes = BaseState}
 
-local toytypes = {'toy_blocks', 'toy_truck'}
+local toytypes = {'toy_blocks', 'toy_truck', 'doll', 'chef', 'train', 'phone'}
 local healtypes = {'baby_bottle', 'pacifier'}
 
 local spawnLocations = {VIRTUAL_HEIGHT - 64, VIRTUAL_HEIGHT - 96, VIRTUAL_HEIGHT - 128, VIRTUAL_HEIGHT - 160, VIRTUAL_HEIGHT - 192}

@@ -32,7 +32,7 @@ GAME_OBJECT_DEFS = {
         breakable = false
     },
 
-    --[[
+
         ['doll'] = {
             type = 'doll',
             texture = 'doll',
@@ -44,17 +44,39 @@ GAME_OBJECT_DEFS = {
             breakable = false
         },
 
-        ['GI Joe'] = {
-            type = 'GI_Joe',
-            texture = 'gi-joe',
+        ['chef'] = {
+            type = 'chef',
+            texture = 'chef',
             frame = 1,
             width = 64,
             height = 64,
             solid = true,
             consumable = false,
             breakable = false
-        }
-    ]]
+        },
+
+        ['train'] = {
+            type = 'train',
+            texture = 'train',
+            frame = 1,
+            width = 64,
+            height = 64,
+            solid = true,
+            consumable = false,
+            breakable = false
+        },
+
+        ['phone'] = {
+            type = 'phone',
+            texture = 'phone',
+            frame = 1,
+            width = 64,
+            height = 64,
+            solid = true,
+            consumable = false,
+            breakable = false
+        },
+
 
     --[[
         HEALZ
