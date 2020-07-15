@@ -1,0 +1,1 @@
+BabyWalkState = Class{__includes = BaseState}

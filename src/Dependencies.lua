@@ -27,6 +27,9 @@ require 'src/states/BaseState'
 require 'src/states/StartState'
 require 'src/states/PlayState'
 
+require 'src/states/baby/BabyWalkState'
+require 'src/states/baby/BabyDodgeState'
+
 
 gTextures = {
 	['baby-walk'] = love.graphics.newImage('graphics/babyspritesheet.png'),

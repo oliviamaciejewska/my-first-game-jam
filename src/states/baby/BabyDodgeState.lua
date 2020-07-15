@@ -1,0 +1,1 @@
+BabyDodgeState = Class{__includes = BaseState}
