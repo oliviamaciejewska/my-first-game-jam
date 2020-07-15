@@ -32,6 +32,8 @@ function GameObject:init(def, y, dx)
     --self.broken = false
     --self.breakable = def.breakable
 
+    self.sound = def.sound or 'cry'
+
 end
 
 function GameObject:update(dt)

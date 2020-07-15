@@ -1,12 +1,14 @@
 {
   "ExpandedNodes": [
     "",
+    "\\fonts",
     "\\graphics",
     "\\lib",
     "\\sounds",
     "\\src",
-    "\\src\\states"
+    "\\src\\states",
+    "\\src\\states\\baby"
   ],
-  "SelectedNode": "\\graphics\\babyspritesheet.png",
+  "SelectedNode": "\\sounds\\yay.wav",
   "PreviewInSolutionExplorer": false
 }

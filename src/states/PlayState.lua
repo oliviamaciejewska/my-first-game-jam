@@ -67,11 +67,12 @@ function PlayState:update(dt)
 		if self.baby:collides(object) and not self.baby.invulnerable then
 			if object.solid == true then
 				self.baby:damage()
-				gSounds['cry']:play()
+				gSounds[object.sound]:play()
 				self.baby:goInvulnerable(1.5)
 			end
 
 			if object.consumable == true then
+				--gSounds['yay']:play()
 				self.baby.health = math.min(self.baby.health + 1, BABY_MAX_HEALTH)
 				table.remove(self.objects, k)
 			end
