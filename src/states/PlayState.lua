@@ -1,12 +1,14 @@
 PlayState = Class{__includes = BaseState}
 
-local types = {'toy_blocks', 'toy_truck', 'baby_bottle', 'pacifier'}
+local toytypes = {'toy_blocks', 'toy_truck'}
+local healtypes = {'baby_bottle', 'pacifier'}
 
 local spawnLocations = {VIRTUAL_HEIGHT - 64, VIRTUAL_HEIGHT - 96, VIRTUAL_HEIGHT - 128, VIRTUAL_HEIGHT - 160, VIRTUAL_HEIGHT - 192}
 
 function PlayState:init()
 	self.baby = Baby()
 	self.timer = 0
+	self.healtimer = 0
 
 	self.objects = {}
 
@@ -22,10 +24,11 @@ function PlayState:update(dt)
 	--toyspeed increases for each toy that spawns
 	self.toySpeed = self.toySpeed + OBJECT_ACCEL * dt 
 	local spawnTime = ((160) * 2) / (self.toySpeed + toyPrevious)
+	local healspawnTime = ((1200) * 2) / (self.toySpeed + toyPrevious)
 
 
 	--randomization of toys
-	local toyType = types[math.random(#types)]
+	local toyType = toytypes[math.random(#toytypes)]
 
 	--toy spawn
 	self.timer = self.timer + dt
@@ -35,6 +38,18 @@ function PlayState:update(dt)
 			spawnLocations[spawnIndex],
 			self.toySpeed))
 		self.timer = 0
+	end
+
+	local healType = healtypes[math.random(#healtypes)]
+
+	self.healtimer = self.healtimer + dt
+	if self.healtimer > healspawnTime then
+		table.insert(self.objects, GameObject (
+			GAME_OBJECT_DEFS[healType],
+			spawnLocations[spawnIndex],
+			self.toySpeed
+		))
+		self.healtimer = 0
 	end
 
 	for k, object in pairs(self.objects) do

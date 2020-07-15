@@ -76,10 +76,8 @@ function love.update(dt)
 	groundScroll = (groundScroll + (GROUND_SCROLL_SPEED * dt) + ((GROUND_SCROLL_ACCEL * dt^2) /2))
 		%VIRTUAL_WIDTH
 
-	--baby:update(dt)
 	gStateMachine:update(dt)
 
-	--gameobject:update(dt)
 
 
 	love.keyboard.keysPressed = {}
@@ -95,9 +93,6 @@ function love.draw()
 	love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), 10, 10)
 
 	gStateMachine:render()
-	--moved baby to playstate
-	--baby:render()
-	--gameobject:render()
 
 	push:finish()
 end

@@ -6,6 +6,9 @@
 
 GAME_OBJECT_DEFS = {
 
+    --[[
+        PAIN STUFF
+    ]]
     ['toy_blocks'] = {
         type = 'toy_blocks',
         texture = 'toy-blocks',
@@ -28,6 +31,34 @@ GAME_OBJECT_DEFS = {
         consumable = false,
         breakable = false
     },
+
+    --[[
+        ['doll'] = {
+            type = 'doll',
+            texture = 'doll',
+            frame = 1,
+            width = 64,
+            height = 64,
+            solid = true,
+            consumable = false,
+            breakable = false
+        },
+
+        ['GI Joe'] = {
+            type = 'GI_Joe',
+            texture = 'gi-joe',
+            frame = 1,
+            width = 64,
+            height = 64,
+            solid = true,
+            consumable = false,
+            breakable = false
+        }
+    ]]
+
+    --[[
+        HEALZ
+    ]]
 
     ['baby_bottle'] = {
         type = 'baby_bottle',
