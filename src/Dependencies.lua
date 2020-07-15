@@ -33,14 +33,17 @@ gTextures = {
 	['health-bar'] = love.graphics.newImage('graphics/HealthBarSheet.png'),
 	['toy-blocks'] = love.graphics.newImage('graphics/ToyBlocks.png'),
 	['toy-truck'] = love.graphics.newImage('graphics/ToyTruck.png'),
-	['baby-bottle'] = love.graphics.newImage('graphics/BabyBottle.png')
+	['baby-bottle'] = love.graphics.newImage('graphics/BabyBottle.png'),
+	['pacifier'] = love.graphics.newImage('graphics/Pacifier.png')
 }
 
 gFrames = {
 	['baby-walk'] = GenerateQuads(gTextures['baby-walk'], 64, 96),
 	['toy-truck'] = GenerateQuads(gTextures['toy-truck'], 64, 64),
 	['toy-blocks'] = GenerateQuads(gTextures['toy-blocks'], 64, 64),
-	['health-bar'] = GenerateQuads(gTextures['health-bar'], 96, 48)
+	['health-bar'] = GenerateQuads(gTextures['health-bar'], 96, 48),
+	['baby-bottle'] = GenerateQuads(gTextures['baby-bottle'], 64, 64),
+	['pacifier'] = GenerateQuads(gTextures['pacifier'], 32, 32)
 }
 
 --gTextures['baby-walk'] = love.graphics.newImage('graphics/babyspritesheet.png')

@@ -32,6 +32,9 @@ function Baby:init()
 	self.flashTimer = 0
 
 	self.health = 4
+	-- to add
+	-- self.score = 0
+
 	
 end
 

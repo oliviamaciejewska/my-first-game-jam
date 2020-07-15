@@ -12,7 +12,6 @@ GAME_OBJECT_DEFS = {
         frame = 1,
         width = 64,
         height = 64,
-        -- Stuff to add in later
         solid = true,
         consumable = false,
         breakable = true

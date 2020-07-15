@@ -1,6 +1,6 @@
 PlayState = Class{__includes = BaseState}
 
-local types = {'toy_blocks', 'toy_truck'}
+local types = {'toy_blocks', 'toy_truck', 'baby_bottle', 'pacifier'}
 
 local spawnLocations = {VIRTUAL_HEIGHT - 64, VIRTUAL_HEIGHT - 96, VIRTUAL_HEIGHT - 128, VIRTUAL_HEIGHT - 160, VIRTUAL_HEIGHT - 192}
 
@@ -43,10 +43,16 @@ function PlayState:update(dt)
 		object:update(dt)
 
 		if self.baby:collides(object) and not self.baby.invulnerable then
-			self.baby:damage()
-			--if object.solid == true then
-			gSounds['cry']:play()
-			self.baby:goInvulnerable(1.5)
+			if object.solid == true then
+				self.baby:damage()
+				gSounds['cry']:play()
+				self.baby:goInvulnerable(1.5)
+			end
+
+			if object.consumable == true then
+				self.baby.health = math.min(self.baby.health + 1, BABY_MAX_HEALTH)
+				table.remove(self.objects, k)
+			end
 		end
 	end
 
