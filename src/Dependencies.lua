@@ -63,7 +63,7 @@ healthQuads = GenerateQuads(healthBar, 96, 48)
 
 gSounds = {
 	['music'] = love.audio.newSource('sounds/music.mp3', 'static'),
-	['cry'] = love.audio.newSource('sounds/cry.wav')
+	['cry'] = love.audio.newSource('sounds/cry.wav', 'static')
 }
 
 

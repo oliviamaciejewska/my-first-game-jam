@@ -2,7 +2,7 @@ PlayState = Class{__includes = BaseState}
 
 local types = {'toy_blocks', 'toy_truck'}
 
-local spawnLocations = {VIRTUAL_HEIGHT - 64, VIRTUAL_HEIGHT - 128, VIRTUAL_HEIGHT - 192}
+local spawnLocations = {VIRTUAL_HEIGHT - 64, VIRTUAL_HEIGHT - 96, VIRTUAL_HEIGHT - 128, VIRTUAL_HEIGHT - 160, VIRTUAL_HEIGHT - 192}
 
 function PlayState:init()
 	self.baby = Baby()
@@ -15,7 +15,7 @@ end
 
 function PlayState:update(dt)
 	--location of spawning toys
-	local spawnIndex = math.random(3)
+	local spawnIndex = math.random(5)
 
 	--toy spawning acceleration (so deltaX is not increasing as toy speed increases)
 	local toyPrevious = self.toySpeed
