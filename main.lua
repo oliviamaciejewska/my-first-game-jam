@@ -13,7 +13,7 @@ local groundScroll = 0
 local groundDx = GROUND_SCROLL_SPEED
 
 local objects = {}
-local gameobject = GameObject()
+--local gameobject = GameObject()
 
 local fps = love.timer.getFPS( )
 
@@ -83,7 +83,7 @@ function love.update(dt)
 	--baby:update(dt)
 	gStateMachine:update(dt)
 
-	gameobject:update(dt)
+	--gameobject:update(dt)
 
 
 	love.keyboard.keysPressed = {}

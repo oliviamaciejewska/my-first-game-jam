@@ -1,34 +1,62 @@
 PlayState = Class{__includes = BaseState}
 
-local types = {'toy_blocks', 'toy_truck', 'baby_bottle', 'pacifier'}
+local types = {'toy_blocks', 'toy_truck'}
+
+local spawnLocations = {VIRTUAL_HEIGHT - 64, VIRTUAL_HEIGHT - 128, VIRTUAL_HEIGHT - 192}
 
 function PlayState:init()
 	self.baby = Baby()
 	self.timer = 0
 
 	self.objects = {}
+
+	self.toySpeed = 10
 end
 
 function PlayState:update(dt)
-	local timeToSpawn = math.random(4)
+	--location of spawning toys
+	local spawnIndex = math.random(3)
+
+	--toy spawning acceleration (so deltaX is not increasing as toy speed increases)
+	local toyPrevious = self.toySpeed
+	--toyspeed increases for each toy that spawns
+	self.toySpeed = self.toySpeed + OBJECT_ACCEL * dt 
+	local spawnTime = ((128) * 2) / (self.toySpeed + toyPrevious)
+
+
+	--randomization of toys
+	local toyType = types[math.random(#types)]
+
+	--toy spawn
 	self.timer = self.timer + dt
-	if self.timer > timeToSpawn then
-		table.insert(self.objects, GameObject('toy_blocks', math.random((VIRTUAL_HEIGHT / 2 + 192), (VIRTUAL_HEIGHT / 2))))
+	if self.timer > spawnTime then
+		table.insert(self.objects, GameObject (
+			GAME_OBJECT_DEFS[toyType],
+			spawnLocations[spawnIndex],
+			self.toySpeed))
 		self.timer = 0
 	end
 
-	for k, pair in pairs(self.objects) do 
-		pair:update(dt)
+	for k, object in pairs(self.objects) do
+	--ensures previous toys still on screen are not slower than new toys that spawn
+		object.dx = self.toySpeed
+		object:update(dt)
+
+		if self.baby:collides(object) and not self.baby.invulnerable then
+			--if object.solid == true then
+			self.baby:goInvulnerable(1.5)
+		end
 	end
 
-	for k, pair in pairs(self.objects) do
-		if pair.remove then
+	for k, object in pairs(self.objects) do
+		if object.remove then
 			table.remove(self.objects, k)
 		end
 	end
 
-
 	self.baby:update(dt)
+
+
 end
 
 function PlayState:render()
@@ -46,7 +74,7 @@ function PlayState:render()
 		local healthFrame = 1
 	end
 
-	love.graphics.draw(healthBar, healthQuads[healthFrame],
+	love.graphics.draw(gTextures['health-bar'], gFrames['health-bar'][healthFrame],
         0, 2)
 	local drawn = false
 
