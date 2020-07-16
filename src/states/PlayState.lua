@@ -6,18 +6,26 @@ local healtypes = {'baby_bottle', 'pacifier'}
 local spawnLocations = {VIRTUAL_HEIGHT - 64, VIRTUAL_HEIGHT - 96, VIRTUAL_HEIGHT - 128, VIRTUAL_HEIGHT - 160, VIRTUAL_HEIGHT - 192}
 
 function PlayState:init()
+	self.timer = 0
+	self.healtimer = 0
+	self.score = 0
+	self.objects = {}
+
+	self.toySpeed = 10
+
+end
+
+-- initialized baby here to pass score through states
+function PlayState:enter(params)
+	local scores = params.score
+
 	self.baby = Baby({
+		score = scores,
 		stateMachine = StateMachine {
 		['walk'] = function() return BabyWalkState(self.baby) end,
 		['dodge'] = function() return BabyDodgeState(self.baby) end
 		}
-})
-	self.timer = 0
-	self.healtimer = 0
-
-	self.objects = {}
-
-	self.toySpeed = 10
+	})
 
 	self.baby:changeState('walk')
 end
@@ -85,9 +93,9 @@ function PlayState:update(dt)
 		end
 	end
 
+	self.score = self.score + (dt * 10)
+
 	self.baby:update(dt)
-
-
 end
 
 function PlayState:render()
@@ -115,11 +123,21 @@ function PlayState:render()
 		healthFrame = 2
 	elseif health == 1 then
 		healthFrame = 1
+		gStateMachine:change('game-over', {
+			score = self.score
+		})
 	end
 
 	
 	love.graphics.draw(gTextures['health-bar'], gFrames['health-bar'][healthFrame],
         0, 2)
 	local drawn = false
+
+	-- adding baby scores
+	local scores = math.floor(self.score)
+
+	love.graphics.setFont(gFonts['large'])
+	love.graphics.setColor(0, 0, 0, 255)
+	love.graphics.printf('Score: ' .. tostring(scores), 0, 20, VIRTUAL_WIDTH - 20, 'right')
 
 end
