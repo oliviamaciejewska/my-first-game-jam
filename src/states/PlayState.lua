@@ -154,6 +154,11 @@ function PlayState:update(dt)
 end
 
 function PlayState:render()
+
+	for j, pair in pairs(self.wallassets) do
+		pair:render()
+	end
+
 	for k, pair in pairs(self.objects) do
 		pair:render()
 		if pair.y + 64 < self.baby.y + 96 then
@@ -185,15 +190,9 @@ function PlayState:render()
 
 	
 	love.graphics.draw(gTextures['health-bar'], gFrames['health-bar'][healthFrame],
-        20, 20, 45)
+        20, 20)
 	local drawn = false
 
-	for j, pair in pairs(self.wallassets) do
-		pair:render()
-		if not pair.rendered then
-			pair:render()
-		end
-	end
 
 	-- adding baby scores
 	local scores = math.floor(self.score)
