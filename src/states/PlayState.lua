@@ -135,7 +135,6 @@ function PlayState:render()
 
 	-- adding baby scores
 	local scores = math.floor(self.score)
-
 	love.graphics.setFont(gFonts['large'])
 	love.graphics.setColor(0, 0, 0, 255)
 	love.graphics.printf('Score: ' .. tostring(scores), 0, 20, VIRTUAL_WIDTH - 20, 'right')

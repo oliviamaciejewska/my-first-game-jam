@@ -44,7 +44,12 @@ gTextures = {
 	['doll'] = love.graphics.newImage('graphics/Doll.png'),
 	['chef'] = love.graphics.newImage('graphics/FrenchChef.png'),
 	['train'] = love.graphics.newImage('graphics/ToyTrain.png'),
-	['phone'] = love.graphics.newImage('graphics/TrapPhone.png')
+	['phone'] = love.graphics.newImage('graphics/TrapPhone.png'),
+	-- paintings and drawings
+	['painting1'] = love.graphics.newImage('graphics/Canvas1.png'),
+	['painting2'] = love.graphics.newImage('graphics/Canvas2.png'),
+	['painting3'] = love.graphics.newImage('graphics/Canvas3.png'),
+	['drawing1'] = love.graphics.newImage('graphics/Drawing1.png')
 }
 
 gFrames = {
@@ -58,7 +63,12 @@ gFrames = {
 	['doll'] = GenerateQuads(gTextures['doll'], 64, 64),
 	['chef'] = GenerateQuads(gTextures['chef'], 64, 64),
 	['train'] = GenerateQuads(gTextures['train'], 64, 64),
-	['phone'] = GenerateQuads(gTextures['phone'], 64, 64)
+	['phone'] = GenerateQuads(gTextures['phone'], 64, 64),
+	-- paintings and drawings
+	['painting1'] = GenerateQuads(gTextures['painting1'], 64, 64),
+	['painting2'] = GenerateQuads(gTextures['painting2'], 64, 64),
+	['painting3'] = GenerateQuads(gTextures['painting3'], 64, 64),
+	['drawing1'] = GenerateQuads(gTextures['drawing1'], 64, 64)
 }
 
 
