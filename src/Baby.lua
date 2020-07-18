@@ -52,19 +52,21 @@ function Baby:goInvulnerable(duration)
 end
 
 function Baby:collides(object)
-
-	if (self.x + self.width) >= object.x and (self.x + self.width) <= object.x + object.width then
-		if object.solid then
+	if object.solid then
+		if (self.x + self.width) >= object.x and (self.x + self.width) <= object.x + object.width then
 			if self.y + self.height >= object.y + object.height - 16 and self.y + self.height <= object.y + object.height + 16  then
 				return true
 			end
-		else
-			if self.y + self.height >= object.y + object.height - 4 and self.y <= object.y + 4 then
-				return true
-			end
+		end
+	else
+		if object.x >= self.x and object. x <= self.x + self.width or
+			object.x + object.width >= self.x and object.x + object.width <= self.x + self.width then
+				if object.y + object.height <= self.y + self.height and object.y + object.height >= self.y or
+					object.y <= self.y and object.y >= self.y then
+					return true
+				end
 		end
 	end
-
 	return false
 
 end
