@@ -21,16 +21,9 @@ function GameObject:init(def, y, dx)
     self.frame = 1
     self.rendered = false
 
-    --self.state = self.defaultState
-    --self.states = def.states
-
     -- interactable definitions (to define functionality in states)
     self.solid = def.solid
-    --self.onCollide = def.onCollide
     self.consumable = def.consumable
-    --self.onConsume = def.onConsume
-    --self.broken = false
-    --self.breakable = def.breakable
 
     self.sound = def.sound or 'cry'
 
