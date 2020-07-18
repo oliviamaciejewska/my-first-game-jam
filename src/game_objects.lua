@@ -34,51 +34,51 @@ GAME_OBJECT_DEFS = {
     },
 
 
-        ['doll'] = {
-            type = 'doll',
-            texture = 'doll',
-            frame = 1,
-            width = 64,
-            height = 64,
-            solid = true,
-            consumable = false,
-            breakable = false
-        },
+    ['doll'] = {
+        type = 'doll',
+        texture = 'doll',
+        frame = 1,
+        width = 64,
+        height = 64,
+        solid = true,
+        consumable = false,
+        breakable = false
+    },
 
-        ['chef'] = {
-            type = 'chef',
-            texture = 'chef',
-            frame = 1,
-            width = 64,
-            height = 64,
-            solid = true,
-            consumable = false,
-            breakable = false
-        },
+    ['chef'] = {
+        type = 'chef',
+        texture = 'chef',
+        frame = 1,
+        width = 64,
+        height = 64,
+        solid = true,
+        consumable = false,
+        breakable = false
+    },
 
-        ['train'] = {
-            type = 'train',
-            texture = 'train',
-            frame = 1,
-            width = 64,
-            height = 64,
-            sound = 'choochoo',
-            solid = true,
-            consumable = false,
-            breakable = false
-        },
+    ['train'] = {
+        type = 'train',
+        texture = 'train',
+        frame = 1,
+        width = 64,
+        height = 64,
+        sound = 'choochoo',
+        solid = true,
+        consumable = false,
+        breakable = false
+    },
 
-        ['phone'] = {
-            type = 'phone',
-            texture = 'phone',
-            frame = 1,
-            width = 64,
-            height = 64,
-            sound = 'hi',
-            solid = true,
-            consumable = false,
-            breakable = false
-        },
+    ['phone'] = {
+        type = 'phone',
+        texture = 'phone',
+        frame = 1,
+        width = 64,
+        height = 64,
+        sound = 'hi',
+        solid = true,
+        consumable = false,
+        breakable = false
+    },
 
 
     --[[
@@ -109,17 +109,17 @@ GAME_OBJECT_DEFS = {
         consumable = true,
         breakable = false
 
-    }
+    },
 
     -- CANVASES / PAINTINGS
     -- will cast canvases to a single sprite sheet and drawings to another once they are actually made...
 
-    ['painting1'] ={
+    ['painting1'] = {
         type = 'painting1',
         texture = 'painting1',
         frame = 1,
         width = 64,
-        height = 32,
+        height = 64,
         solid = false,
         consumable = false
     },
@@ -129,7 +129,7 @@ GAME_OBJECT_DEFS = {
         texture = 'painting2',
         frame = 1,
         width = 64,
-        height = 32,
+        height = 64,
         solid = false,
         consumable = false
     },
@@ -139,7 +139,7 @@ GAME_OBJECT_DEFS = {
         texture = 'painting3',
         frame = 1,
         width = 64,
-        height = 32,
+        height = 64,
         solid = false,
         consumable = false
     },
@@ -149,7 +149,7 @@ GAME_OBJECT_DEFS = {
         texture = 'drawing1',
         frame = 1,
         width = 64,
-        height = 32,
+        height = 64,
         solid = false,
         consumable = false
     }
