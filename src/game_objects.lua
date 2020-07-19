@@ -128,8 +128,8 @@ GAME_OBJECT_DEFS = {
         type = 'painting2',
         texture = 'painting2',
         frame = 1,
-        width = 64,
-        height = 64,
+        width = 192,
+        height = 192,
         solid = false,
         consumable = false
     },
@@ -138,8 +138,8 @@ GAME_OBJECT_DEFS = {
         type = 'painting3',
         texture = 'painting3',
         frame = 1,
-        width = 64,
-        height = 64,
+        width = 256,
+        height = 192,
         solid = false,
         consumable = false
     },

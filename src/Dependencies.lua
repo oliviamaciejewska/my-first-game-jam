@@ -68,8 +68,8 @@ gFrames = {
 	['phone'] = GenerateQuads(gTextures['phone'], 64, 64),
 	-- paintings and drawings
 	['painting1'] = GenerateQuads(gTextures['painting1'], 192, 192),
-	['painting2'] = GenerateQuads(gTextures['painting2'], 64, 64),
-	['painting3'] = GenerateQuads(gTextures['painting3'], 64, 64),
+	['painting2'] = GenerateQuads(gTextures['painting2'], 192, 192),
+	['painting3'] = GenerateQuads(gTextures['painting3'], 256, 192),
 	['drawing1'] = GenerateQuads(gTextures['drawing1'], 64, 64),
 	-- Mom
 	['momlegs'] = GenerateQuads(gTextures['momlegs'], 256, 400)

@@ -60,7 +60,12 @@ function PlayState:update(dt)
 	local toyPrevious = self.toySpeed
 	local wallstuffPrevious = self.wallstuffSpeed
 	--toyspeed increases for each toy that spawns
-	self.toySpeed = self.toySpeed + OBJECT_ACCEL * dt 
+	if self.score < 800 then
+		self.toySpeed = self.toySpeed + OBJECT_ACCEL * dt 
+	else
+		self.toySpeed = self.toySpeed
+	end
+
 	local spawnTime = ((160) * 2) / (self.toySpeed + toyPrevious)
 	local healspawnTime = ((1200) * 2) / (self.toySpeed + toyPrevious)
 
@@ -73,14 +78,44 @@ function PlayState:update(dt)
 	--randomization of toys
 	local toyType = toytypes[math.random(#toytypes)]
 
-	--toy spawn
+	--toy spawn logic
 	self.timer = self.timer + dt
-	if self.timer > spawnTime then
-		table.insert(self.objects, GameObject (
-			GAME_OBJECT_DEFS[toyType],
-			spawnLocations[spawnIndex],
-			self.toySpeed))
-		self.timer = 0
+
+	if self.score < 250 then
+
+		if	self.timer > spawnTime then
+			table.insert(self.objects, GameObject (
+				GAME_OBJECT_DEFS[toyType],
+				spawnLocations[spawnIndex],
+				self.toySpeed))
+			self.timer = 0
+		end
+	elseif self.score >= 250 and self.score < 500 then
+
+		if	self.timer > (spawnTime - (spawnTime / 8)) then
+			table.insert(self.objects, GameObject (
+				GAME_OBJECT_DEFS[toyType],
+				spawnLocations[spawnIndex],
+				self.toySpeed))
+			self.timer = 0
+		end
+	elseif self.score >= 500 and self.score < 750 then
+
+		if	self.timer > (spawnTime - (spawnTime / 4)) then
+			table.insert(self.objects, GameObject (
+				GAME_OBJECT_DEFS[toyType],
+				spawnLocations[spawnIndex],
+				self.toySpeed))
+			self.timer = 0
+		end
+	else
+		if self.timer > (2 * spawnTime/3) then
+			table.insert(self.objects, GameObject (
+				GAME_OBJECT_DEFS[toyType],
+				spawnLocations[spawnIndex],
+				self.toySpeed))
+			self.timer = 0
+		end
 	end
 
 	local healType = healtypes[math.random(#healtypes)]
