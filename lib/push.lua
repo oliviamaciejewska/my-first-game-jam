@@ -4,7 +4,6 @@
 -- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 -- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
 local love11 = love.getVersion() == 11
 local getDPI = love11 and love.window.getDPIScale or love.window.getPixelScale
 local windowUpdateMode = love11 and love.window.updateMode or function(width, height, settings)
@@ -110,7 +109,7 @@ function push:setShader(name, shader)
 end
 
 function push:initValues()
-  self._PSCALE = (not love11 and self._highdpi) and getDPI() or 1
+  self._PSCALE = (not love11 and self._highdpi) and 1 --getDPI() or 1
   
   self._SCALE = {
     x = self._RWIDTH/self._WWIDTH * self._PSCALE,
@@ -281,7 +280,9 @@ function push:getDimensions() return self._WWIDTH, self._WHEIGHT end
 return push
 
 
+
 --[[
+
 -- push.lua v0.2
 
 -- Copyright (c) 2017 Ulysse Ramage
@@ -403,7 +404,7 @@ function push:initValues()
   self._GHEIGHT = self._RHEIGHT * self._PSCALE - self._OFFSET.y * 2
 end
 
---[[ DEPRECATED 
+-- DEPRECATED 
 function push:apply(operation, shader)
   if operation == "start" then
     self:start()

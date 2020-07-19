@@ -1,36 +1,36 @@
 --push library
 -- https://github.com/Ulydev/push
-push = require 'lib/push'
+push = require 'lib.push'
 
 --class library
 -- https://github.com/vrld/hump/blob/master/class.lua
-Class = require 'lib/class'
+Class = require 'lib.class'
 
 
 
 
 -- Utility
-require 'src/Util'
-require 'src/Constants'
-require 'src/StateMachine'
+require 'src.Util'
+require 'src.Constants'
+require 'src.StateMachine'
 
 
 -- general
-require 'src/Animation'
-require 'src/Baby'
-require 'src/GameObject'
-require 'src/game_objects'
+require 'src.Animation'
+require 'src.Baby'
+require 'src.GameObject'
+require 'src.game_objects'
 
 
 --gameStates
-require 'src/states/BaseState'
-require 'src/states/StartState'
-require 'src/states/PlayState'
-require 'src/states/GameOverState'
+require 'src.states.BaseState'
+require 'src.states.StartState'
+require 'src.states.PlayState'
+require 'src.states.GameOverState'
 
 -- baby states
-require 'src/states/baby/BabyWalkState'
-require 'src/states/baby/BabyDodgeState'
+require 'src.states.baby.BabyWalkState'
+require 'src.states.baby.BabyDodgeState'
 
 
 gTextures = {
