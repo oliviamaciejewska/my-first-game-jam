@@ -7,11 +7,11 @@ require "src.states.BaseState"
 --Update IDK - moop - moved graphics to start state (attempt at states)
 local background = love.graphics.newImage('graphics/background.png')
 local backgroundScroll = 0
-local backgroundDx = BACKGROUND_SCROLL_SPEED
+--local backgroundDx = BACKGROUND_SCROLL_SPEED
 
 local ground = love.graphics.newImage('graphics/ground.png')
 local groundScroll = 0
-local groundDx = GROUND_SCROLL_SPEED
+--local groundDx = GROUND_SCROLL_SPEED
 
 local objects = {}
 --local gameobject = GameObject()
@@ -70,13 +70,17 @@ function love.keyboard.wasPressed(key)
 end
 
 function love.update(dt)
-	backgroundDx = backgroundDx + BACKGROUND_SCROLL_ACCEL * dt
+	--[[
+	if backgroundDx < 450 then
+		backgroundDx = backgroundDx + BACKGROUND_SCROLL_ACCEL * dt
+	end
 	backgroundScroll = (backgroundScroll + (backgroundDx * dt) + ((BACKGROUND_SCROLL_ACCEL * dt^2) / 2))
 		% BACKGROUND_LOOPING_POINT
-
-	groundDx = groundDx + GROUND_SCROLL_ACCEL * dt
-	groundScroll = (groundScroll + (GROUND_SCROLL_SPEED * dt) + ((GROUND_SCROLL_ACCEL * dt^2) /2))
-		%VIRTUAL_WIDTH
+	]]
+	--if backgroundDx < 
+	--groundDx = groundDx + GROUND_SCROLL_ACCEL * dt
+	--groundScroll = (groundScroll + (GROUND_SCROLL_SPEED * dt) + ((GROUND_SCROLL_ACCEL * dt^2) /2))
+	--	%VIRTUAL_WIDTH
 
 	gStateMachine:update(dt)
 
@@ -92,7 +96,7 @@ function love.draw()
 
 	love.graphics.draw(ground, -groundScroll, VIRTUAL_HEIGHT - 192)
 
-	--love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), 10, 10)
+	love.graphics.print("Current scrollspeed: "..tostring(groundDx), 10, 10)
 
 	gStateMachine:render()
 

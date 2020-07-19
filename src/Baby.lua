@@ -62,7 +62,7 @@ function Baby:collides(object)
 		if object.x >= self.x and object. x <= self.x + self.width or
 			object.x + object.width >= self.x and object.x + object.width <= self.x + self.width then
 				if object.y + object.height <= self.y + self.height and object.y + object.height >= self.y or
-					object.y <= self.y and object.y >= self.y then
+					object.y >= self.y and object.y <= self.y + self.height then
 					return true
 				end
 		end

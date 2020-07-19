@@ -51,10 +51,16 @@ function PlayState:enter(params)
 end
 
 function PlayState:update(dt)
+
+	--chance of heal spawning
+	local healChance = math.random(7)
 	--location of spawning toys
 	local spawnIndex = math.random(5)
 	--location of painting & drawing spawns
 	local PandDIndex = math.random(2)
+
+	--heal type
+	local healType = healtypes[math.random(#healtypes)]
 
 	--toy spawning acceleration (so deltaX is not increasing as toy speed increases)
 	local toyPrevious = self.toySpeed
@@ -62,15 +68,15 @@ function PlayState:update(dt)
 	--toyspeed increases for each toy that spawns
 	if self.score < 800 then
 		self.toySpeed = self.toySpeed + OBJECT_ACCEL * dt 
-	else
-		self.toySpeed = self.toySpeed
 	end
 
 	local spawnTime = ((160) * 2) / (self.toySpeed + toyPrevious)
 	local healspawnTime = ((1200) * 2) / (self.toySpeed + toyPrevious)
 
 	-- paintings&drawings spawns
-	self.wallstuffSpeed = self.wallstuffSpeed + OBJECT_ACCEL * dt
+	if self.score < 800 then
+		self.wallstuffSpeed = self.wallstuffSpeed + OBJECT_ACCEL * dt
+	end
 	local paintingTime = ((400) * 2) / (self.wallstuffSpeed + wallstuffPrevious)
 	local drawingTime = ((2000) * 2) / (self.wallstuffSpeed + wallstuffPrevious)
 
@@ -80,55 +86,72 @@ function PlayState:update(dt)
 
 	--toy spawn logic
 	self.timer = self.timer + dt
-
+	
 	if self.score < 250 then
 
 		if	self.timer > spawnTime then
-			table.insert(self.objects, GameObject (
-				GAME_OBJECT_DEFS[toyType],
+			if healChance == 2 then
+				table.insert(self.objects, GameObject (
+				GAME_OBJECT_DEFS[healType],
 				spawnLocations[spawnIndex],
 				self.toySpeed))
+			else
+				table.insert(self.objects, GameObject (
+					GAME_OBJECT_DEFS[toyType],
+					spawnLocations[spawnIndex],
+					self.toySpeed))
+			end
 			self.timer = 0
 		end
 	elseif self.score >= 250 and self.score < 500 then
 
 		if	self.timer > (spawnTime - (spawnTime / 8)) then
-			table.insert(self.objects, GameObject (
-				GAME_OBJECT_DEFS[toyType],
+			if healChance == 2 then
+				table.insert(self.objects, GameObject (
+				GAME_OBJECT_DEFS[healType],
 				spawnLocations[spawnIndex],
 				self.toySpeed))
+			else
+				table.insert(self.objects, GameObject (
+					GAME_OBJECT_DEFS[toyType],
+					spawnLocations[spawnIndex],
+					self.toySpeed))
+			end
 			self.timer = 0
 		end
 	elseif self.score >= 500 and self.score < 750 then
 
 		if	self.timer > (spawnTime - (spawnTime / 4)) then
-			table.insert(self.objects, GameObject (
-				GAME_OBJECT_DEFS[toyType],
+			if healChance == 2 then
+				table.insert(self.objects, GameObject (
+				GAME_OBJECT_DEFS[healType],
 				spawnLocations[spawnIndex],
 				self.toySpeed))
+			else
+				table.insert(self.objects, GameObject (
+					GAME_OBJECT_DEFS[toyType],
+					spawnLocations[spawnIndex],
+					self.toySpeed))
+			end
 			self.timer = 0
 		end
 	else
 		if self.timer > (2 * spawnTime/3) then
-			table.insert(self.objects, GameObject (
-				GAME_OBJECT_DEFS[toyType],
+			if healChance == 2 then
+				table.insert(self.objects, GameObject (
+				GAME_OBJECT_DEFS[healType],
 				spawnLocations[spawnIndex],
 				self.toySpeed))
+			else
+				table.insert(self.objects, GameObject (
+					GAME_OBJECT_DEFS[toyType],
+					spawnLocations[spawnIndex],
+					self.toySpeed))
+			end
 			self.timer = 0
 		end
 	end
 
-	local healType = healtypes[math.random(#healtypes)]
-
-	self.healtimer = self.healtimer + dt
-	if self.healtimer > healspawnTime then
-		table.insert(self.objects, GameObject (
-			GAME_OBJECT_DEFS[healType],
-			spawnLocations[spawnIndex],
-			self.toySpeed
-		))
-		self.healtimer = 0
-	end
 
 	local paintingType = paintings[math.random(#paintings)]
 	self.paintingtimer = self.paintingtimer + dt
