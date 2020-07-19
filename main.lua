@@ -1,6 +1,7 @@
 --dependencies file
-require 'src/Dependencies'
-require 'src/states/BaseState'
+require "src.Dependencies"
+require "src.states.BaseState"
+
 -- Update 5 - poot - removed definitions here and put them in constants to declutter
 
 --Update IDK - moop - moved graphics to start state (attempt at states)
