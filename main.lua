@@ -92,7 +92,7 @@ function love.draw()
 
 	love.graphics.draw(ground, -groundScroll, VIRTUAL_HEIGHT - 192)
 
-	love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), 10, 10)
+	--love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), 10, 10)
 
 	gStateMachine:render()
 
