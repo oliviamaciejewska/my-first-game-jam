@@ -40,7 +40,7 @@ function GameObject:update(dt)
 end
 
 function GameObject:render()
-    love.graphics.draw(gTextures[self.texture], gFrames[self.texture][self.currentAnimation:getCurrentFrame()],
+    love.graphics.draw(gTextures[self.texture], gFrames[self.texture][self.frame],
         self.x, self.y,
 		0, 1 or -1, 1)
 end
