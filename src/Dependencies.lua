@@ -20,6 +20,7 @@ require 'src.Animation'
 require 'src.Baby'
 require 'src.GameObject'
 require 'src.game_objects'
+require 'src.MomLegs'
 
 
 --gameStates

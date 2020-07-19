@@ -10,16 +10,16 @@ MomLegs = Class{}
 function MomLegs:init()
 
     self.x = 32
-    self.y = VIRTUAL_HEIGHT - 96
+    self.y = VIRTUAL_HEIGHT - 432
 
     self.texture = 'momlegs'
 
-    self.animation = Animation(
+    --[[self.animation = Animation(
 
         frames = 1
     )
 
-    self.currentAnimation = self.animation
+    self.currentAnimation = self.animation]]
 
 end
 
@@ -34,7 +34,7 @@ function MomLegs:render()
 
     love.graphics.draw(
         gTextures[self.texture], 
-        gFrames[self.texture][self.currentAnimation:getCurrentFrame()],
+        gFrames[self.texture][1],--self.currentAnimation:getCurrentFrame()],
         self.x, self.y,
         0, 1 or -1, 1
     )

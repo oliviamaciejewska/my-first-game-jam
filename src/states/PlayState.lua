@@ -29,7 +29,7 @@ function PlayState:init()
 	self.drawingtimer = 0
 
 	--momlegs
-	--self.momlegs = MomLegs()
+	self.momlegs = MomLegs()
 
 end
 
@@ -229,7 +229,7 @@ function PlayState:render()
 		end
 	end
 
-	--self.momlegs:render()
+	self.momlegs:render()
 
 	self.baby:render()
 	for i, pair in pairs(self.objects) do
