@@ -114,10 +114,30 @@ GAME_OBJECT_DEFS = {
     -- CANVASES / PAINTINGS
     -- will cast canvases to a single sprite sheet and drawings to another once they are actually made...
 
-    ['painting1'] = {
-        type = 'painting1',
+    ['painting11'] = {
+        type = 'painting11',
         texture = 'painting1',
-        frame = 1,
+        frame = 2,
+        width = 192,
+        height = 192,
+        solid = false,
+        consumable = false
+    },
+
+    ['painting12'] = {
+        type = 'painting12',
+        texture = 'painting1',
+        frame = 3,
+        width = 192,
+        height = 192,
+        solid = false,
+        consumable = false
+    },
+
+    ['painting13'] = {
+        type = 'painting13',
+        texture = 'painting1',
+        frame = 4,
         width = 192,
         height = 192,
         solid = false,
