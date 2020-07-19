@@ -9,7 +9,7 @@ local spawnLocations = {VIRTUAL_HEIGHT - 64, VIRTUAL_HEIGHT - 96, VIRTUAL_HEIGHT
 -- paintings & drawings
 local paintings = {'painting1', 'painting2', 'painting3'}
 local drawings = {'drawing1'}
-local paintinglocations = {VIRTUAL_HEIGHT - 288, VIRTUAL_HEIGHT - 320}
+local paintinglocations = {VIRTUAL_HEIGHT - 400, VIRTUAL_HEIGHT - 392}
 local drawinglocations = {VIRTUAL_HEIGHT - 240, VIRTUAL_HEIGHT - 256}
 
 
@@ -28,6 +28,9 @@ function PlayState:init()
 	self.paintingtimer = 0
 	self.drawingtimer = 0
 
+	--momlegs
+	--self.momlegs = MomLegs()
+
 end
 
 -- initialized baby here to pass score through states
@@ -43,6 +46,8 @@ function PlayState:enter(params)
 	})
 
 	self.baby:changeState('walk')
+
+--	self.momlegs = MomLegs()
 end
 
 function PlayState:update(dt)
@@ -166,6 +171,8 @@ function PlayState:render()
 		end
 	end
 
+	self.momlegs:render()
+
 	self.baby:render()
 	for i, pair in pairs(self.objects) do
 		if not pair.rendered then
@@ -187,6 +194,8 @@ function PlayState:render()
 			score = self.score
 		})
 	end
+
+
 
 	
 	love.graphics.draw(gTextures['health-bar'], gFrames['health-bar'][healthFrame],

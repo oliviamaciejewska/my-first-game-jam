@@ -49,7 +49,9 @@ gTextures = {
 	['painting1'] = love.graphics.newImage('graphics/Canvas1.png'),
 	['painting2'] = love.graphics.newImage('graphics/Canvas2.png'),
 	['painting3'] = love.graphics.newImage('graphics/Canvas3.png'),
-	['drawing1'] = love.graphics.newImage('graphics/Drawing1.png')
+	['drawing1'] = love.graphics.newImage('graphics/Drawing1.png'),
+	-- Mom
+	['momlegs'] = love.graphics.newImage('graphics/MomLegs.png')
 }
 
 gFrames = {
@@ -65,10 +67,13 @@ gFrames = {
 	['train'] = GenerateQuads(gTextures['train'], 64, 64),
 	['phone'] = GenerateQuads(gTextures['phone'], 64, 64),
 	-- paintings and drawings
-	['painting1'] = GenerateQuads(gTextures['painting1'], 64, 64),
+	['painting1'] = GenerateQuads(gTextures['painting1'], 192, 192),
 	['painting2'] = GenerateQuads(gTextures['painting2'], 64, 64),
 	['painting3'] = GenerateQuads(gTextures['painting3'], 64, 64),
-	['drawing1'] = GenerateQuads(gTextures['drawing1'], 64, 64)
+	['drawing1'] = GenerateQuads(gTextures['drawing1'], 64, 64),
+	-- Mom
+	['momlegs'] = GenerateQuads(gTextures['momlegs'], 256, 400)
+
 }
 
 

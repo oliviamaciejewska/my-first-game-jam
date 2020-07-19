@@ -9,13 +9,14 @@ MomLegs = Class{}
 
 function MomLegs:init()
 
-    self.x = VIRTUAL_WIDTH / 8
+    self.x = 32
     self.y = VIRTUAL_HEIGHT - 96
+
+    self.texture = 'momlegs'
 
     self.animation = Animation(
 
-        frames = { },
-        interval = 0.08
+        frames = 1
     )
 
     self.currentAnimation = self.animation
