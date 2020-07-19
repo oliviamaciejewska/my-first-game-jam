@@ -118,8 +118,8 @@ GAME_OBJECT_DEFS = {
         type = 'painting1',
         texture = 'painting1',
         frame = 1,
-        width = 64,
-        height = 64,
+        width = 192,
+        height = 192,
         solid = false,
         consumable = false
     },
