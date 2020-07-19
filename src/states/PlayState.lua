@@ -171,7 +171,7 @@ function PlayState:render()
 		end
 	end
 
-	self.momlegs:render()
+	--self.momlegs:render()
 
 	self.baby:render()
 	for i, pair in pairs(self.objects) do
