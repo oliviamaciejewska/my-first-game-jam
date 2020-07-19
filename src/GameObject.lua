@@ -18,7 +18,7 @@ function GameObject:init(def, y, dx)
     self.width = def.width
     self.height = def.height
     self.texture = def.texture
-    self.frame = 1
+    self.frame = def.frame
     self.rendered = false
 
     -- interactable definitions (to define functionality in states)
@@ -40,7 +40,7 @@ function GameObject:update(dt)
 end
 
 function GameObject:render()
-    love.graphics.draw(gTextures[self.texture], gFrames[self.texture][1--[[self.currentAnimation:getCurrentFrame()]]],
+    love.graphics.draw(gTextures[self.texture], gFrames[self.texture][self.currentAnimation:getCurrentFrame()],
         self.x, self.y,
 		0, 1 or -1, 1)
 end
