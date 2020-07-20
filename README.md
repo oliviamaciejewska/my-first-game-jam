@@ -1,5 +1,6 @@
 # My First Game Jam
 Game submission for My First Game Jam Summer 2020
+
 https://itch.io/jam/my-first-game-jam-summer-2020
 
 ## Premise of Game
