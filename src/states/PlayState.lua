@@ -214,6 +214,7 @@ function PlayState:update(dt)
 	self.score = self.score + (dt * 10)
 
 	self.baby:update(dt)
+	self.momlegs:update(dt)
 end
 
 function PlayState:render()

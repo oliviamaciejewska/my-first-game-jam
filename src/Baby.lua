@@ -14,7 +14,7 @@ function Baby:init(def)
 	self.height = 96--self.image:getHeight()
 	self.score = def.score
 	
-	self.x = VIRTUAL_WIDTH / 4 + (self.width / 2)
+	self.x = VIRTUAL_WIDTH / 2 - (self.width / 2) 
 	self.y = VIRTUAL_HEIGHT / 2 + (self.height / 2)
 
 	self.texture = 'walk'
