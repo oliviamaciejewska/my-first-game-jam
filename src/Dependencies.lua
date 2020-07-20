@@ -52,7 +52,8 @@ gTextures = {
 	['painting3'] = love.graphics.newImage('graphics/Canvas3.png'),
 	['drawings'] = love.graphics.newImage('graphics/drawingssheet.png'),
 	-- Mom
-	['momlegs'] = love.graphics.newImage('graphics/MomLegSheet.png')
+	['momlegs'] = love.graphics.newImage('graphics/MomLegSheet.png'),
+	['momarms'] = love.graphics.newImage('graphics/MomArms.png')
 }
 
 gFrames = {
@@ -73,7 +74,8 @@ gFrames = {
 	['painting3'] = GenerateQuads(gTextures['painting3'], 256, 192),
 	['drawings'] = GenerateQuads(gTextures['drawings'], 64, 64),
 	-- Mom
-	['momlegs'] = GenerateQuads(gTextures['momlegs'], 256, 400)
+	['momlegs'] = GenerateQuads(gTextures['momlegs'], 256, 400),
+	['momarms'] = GenerateQuads(gTextures['momarms'], 256, 400)
 
 }
 
