@@ -53,7 +53,7 @@ end
 function PlayState:update(dt)
 
 	--chance of heal spawning
-	local healChance = math.random(25)
+	local healChance = math.random(50)
 	--location of spawning toys
 	local spawnIndex = math.random(5)
 	--location of painting & drawing spawns

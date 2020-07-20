@@ -7,7 +7,7 @@ MomLegs = Class{}
 function MomLegs:init()
 
     self.x = 32
-    self.y = 0--VIRTUAL_HEIGHT - 432
+    self.y = 0
 
     self.texture = 'momlegs'
 
