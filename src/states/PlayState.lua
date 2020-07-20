@@ -7,8 +7,8 @@ local healtypes = {'baby_bottle', 'pacifier'}
 local spawnLocations = {VIRTUAL_HEIGHT - 64, VIRTUAL_HEIGHT - 96, VIRTUAL_HEIGHT - 128, VIRTUAL_HEIGHT - 160, VIRTUAL_HEIGHT - 192}
 
 -- paintings & drawings
-local paintings = {'painting11', 'painting12', 'painting13','painting2', 'painting3'}
-local drawings = {'drawing1'}
+local paintings = {'painting11', 'painting12', 'painting13','painting21', 'painting22', 'painting23','painting31', 'painting32', 'painting33'} 
+local drawings = {'drawing1', 'drawing2', 'drawing3', 'drawing4'}
 local paintinglocations = {VIRTUAL_HEIGHT - 550, VIRTUAL_HEIGHT - 500}
 local drawinglocations = {VIRTUAL_HEIGHT - 240, VIRTUAL_HEIGHT - 256}
 
@@ -53,7 +53,7 @@ end
 function PlayState:update(dt)
 
 	--chance of heal spawning
-	local healChance = math.random(7)
+	local healChance = math.random(25)
 	--location of spawning toys
 	local spawnIndex = math.random(5)
 	--location of painting & drawing spawns
@@ -90,7 +90,7 @@ function PlayState:update(dt)
 	if self.score < 250 then
 
 		if	self.timer > spawnTime then
-			if healChance == 2 then
+			if healChance == 1 then
 				table.insert(self.objects, GameObject (
 				GAME_OBJECT_DEFS[healType],
 				spawnLocations[spawnIndex],
@@ -106,7 +106,7 @@ function PlayState:update(dt)
 	elseif self.score >= 250 and self.score < 500 then
 
 		if	self.timer > (spawnTime - (spawnTime / 8)) then
-			if healChance == 2 then
+			if healChance == 1 then
 				table.insert(self.objects, GameObject (
 				GAME_OBJECT_DEFS[healType],
 				spawnLocations[spawnIndex],
@@ -122,7 +122,7 @@ function PlayState:update(dt)
 	elseif self.score >= 500 and self.score < 750 then
 
 		if	self.timer > (spawnTime - (spawnTime / 4)) then
-			if healChance == 2 then
+			if healChance == 1 then
 				table.insert(self.objects, GameObject (
 				GAME_OBJECT_DEFS[healType],
 				spawnLocations[spawnIndex],
@@ -137,7 +137,7 @@ function PlayState:update(dt)
 		end
 	else
 		if self.timer > (2 * spawnTime/3) then
-			if healChance == 2 then
+			if healChance == 1 then
 				table.insert(self.objects, GameObject (
 				GAME_OBJECT_DEFS[healType],
 				spawnLocations[spawnIndex],

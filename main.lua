@@ -96,7 +96,7 @@ function love.draw()
 
 	love.graphics.draw(ground, -groundScroll, VIRTUAL_HEIGHT - 192)
 
-	love.graphics.print("Current scrollspeed: "..tostring(groundDx), 10, 10)
+	--love.graphics.print("Current scrollspeed: "..tostring(groundDx), 10, 10)
 
 	gStateMachine:render()
 

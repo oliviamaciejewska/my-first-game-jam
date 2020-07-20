@@ -144,20 +144,60 @@ GAME_OBJECT_DEFS = {
         consumable = false
     },
 
-    ['painting2'] ={
-        type = 'painting2',
+    ['painting21'] ={
+        type = 'painting21',
         texture = 'painting2',
-        frame = 1,
+        frame = 2,
         width = 192,
         height = 192,
         solid = false,
         consumable = false
     },
 
-    ['painting3'] ={
-        type = 'painting3',
+    ['painting22'] ={
+        type = 'painting22',
+        texture = 'painting2',
+        frame = 3,
+        width = 192,
+        height = 192,
+        solid = false,
+        consumable = false
+    },
+
+    ['painting23'] ={
+        type = 'painting23',
+        texture = 'painting2',
+        frame = 4,
+        width = 192,
+        height = 192,
+        solid = false,
+        consumable = false
+    },
+
+    ['painting31'] ={
+        type = 'painting31',
         texture = 'painting3',
-        frame = 1,
+        frame = 2,
+        width = 256,
+        height = 192,
+        solid = false,
+        consumable = false
+    },
+
+    ['painting32'] ={
+        type = 'painting32',
+        texture = 'painting3',
+        frame = 3,
+        width = 256,
+        height = 192,
+        solid = false,
+        consumable = false
+    },
+
+    ['painting33'] ={
+        type = 'painting33',
+        texture = 'painting3',
+        frame = 4,
         width = 256,
         height = 192,
         solid = false,
@@ -166,11 +206,41 @@ GAME_OBJECT_DEFS = {
 
     ['drawing1'] ={
         type = 'drawing1',
-        texture = 'drawing1',
+        texture = 'drawings',
         frame = 1,
         width = 64,
         height = 64,
         solid = false,
         consumable = false
-    }
+    },
+
+    ['drawing2'] ={
+        type = 'drawing2',
+        texture = 'drawings',
+        frame = 2,
+        width = 64,
+        height = 64,
+        solid = false,
+        consumable = false
+    },
+
+    ['drawing3'] ={
+        type = 'drawing3',
+        texture = 'drawings',
+        frame = 3,
+        width = 64,
+        height = 64,
+        solid = false,
+        consumable = false
+    },
+
+    ['drawing4'] ={
+        type = 'drawing4',
+        texture = 'drawings',
+        frame = 4,
+        width = 64,
+        height = 64,
+        solid = false,
+        consumable = false
+    },
 }
