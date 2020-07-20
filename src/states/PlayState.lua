@@ -9,7 +9,7 @@ local spawnLocations = {VIRTUAL_HEIGHT - 64, VIRTUAL_HEIGHT - 96, VIRTUAL_HEIGHT
 -- paintings & drawings
 local paintings = {'painting11', 'painting12', 'painting13','painting2', 'painting3'}
 local drawings = {'drawing1'}
-local paintinglocations = {VIRTUAL_HEIGHT - 400, VIRTUAL_HEIGHT - 392}
+local paintinglocations = {VIRTUAL_HEIGHT - 550, VIRTUAL_HEIGHT - 500}
 local drawinglocations = {VIRTUAL_HEIGHT - 240, VIRTUAL_HEIGHT - 256}
 
 
@@ -19,7 +19,7 @@ function PlayState:init()
 	self.score = 0
 	self.objects = {}
 	
-
+	
 	self.toySpeed = 10
 	
 	-- paintigns & drawings
