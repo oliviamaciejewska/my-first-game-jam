@@ -9,7 +9,9 @@ Inspired by the chase style of Crash Bandicoot or Castle Crashers mini game, the
 
 ## Controls
 'W' - Up
+
 'S' - Down
+
 'Space' - Dodge
 
 ## Resources for ourselves and anyone who pleases!
