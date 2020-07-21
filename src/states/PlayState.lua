@@ -30,6 +30,7 @@ function PlayState:init()
 
 	--momlegs
 	self.momlegs = MomLegs()
+	self.momarms = MomArms()
 
 end
 
@@ -215,6 +216,7 @@ function PlayState:update(dt)
 
 	self.baby:update(dt)
 	self.momlegs:update(dt)
+	self.momarms:update(dt)
 end
 
 function PlayState:render()
@@ -238,6 +240,8 @@ function PlayState:render()
 			pair:render()
 		end
 	end
+	
+	self.momarms:render()
 
 	local health = self.baby.health
 

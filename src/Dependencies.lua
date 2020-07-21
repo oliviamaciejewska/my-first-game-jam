@@ -21,7 +21,7 @@ require 'src.Baby'
 require 'src.GameObject'
 require 'src.game_objects'
 require 'src.MomLegs'
-
+require 'src.MomArms'
 
 --gameStates
 require 'src.states.BaseState'

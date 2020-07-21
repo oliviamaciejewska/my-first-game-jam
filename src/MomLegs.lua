@@ -5,10 +5,10 @@
 MomLegs = Class{}
 
 function MomLegs:init()
-
-    self.x = 32
+    self.width = 256
+    self.x =  VIRTUAL_WIDTH / 2 - self.width - 64
     self.y = 0
-
+    
     self.texture = 'momlegs'
 
     self.animation = Animation{
