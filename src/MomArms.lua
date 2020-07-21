@@ -18,7 +18,7 @@ end
 
 
 function MomArms:update(dt)
-    if self.y < -64 and goUp == false then
+    if self.y < -64 then
         self.y = self.y + self.dx * dt - ((OBJECT_ACCEL * dt * dt) / 2)
         if self.y > -60 then
             goUp = true
