@@ -7,8 +7,9 @@
     "\\sounds",
     "\\src",
     "\\src\\states",
-    "\\src\\states\\baby"
+    "\\src\\states\\baby",
+    "\\src\\states\\mom"
   ],
-  "SelectedNode": "\\sounds\\yay.wav",
+  "SelectedNode": "\\src\\states\\mom\\MomDropState.lua",
   "PreviewInSolutionExplorer": false
 }

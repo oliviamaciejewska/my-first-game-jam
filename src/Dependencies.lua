@@ -34,6 +34,9 @@ require 'src.states.GameOverState'
 require 'src.states.baby.BabyWalkState'
 require 'src.states.baby.BabyDodgeState'
 
+--mom states
+require 'src.states.mom.MomDropState'
+require 'src.states.mom.MomGrabState'
 
 gTextures = {
 	['walk'] = love.graphics.newImage('graphics/babyspritesheet.png'),
@@ -90,7 +93,6 @@ gSounds = {
 	['cry'] = love.audio.newSource('sounds/cry.wav', 'static'),
 	['choochoo'] = love.audio.newSource('sounds/choochoo.wav', 'static'),
 	['blocks'] = love.audio.newSource('sounds/blocks.wav', 'static'),
-	['yay'] = love.audio.newSource('sounds/yay.wav', 'static'),
 	['hi'] = love.audio.newSource('sounds/hi.wav', 'static')
 }
 
