@@ -30,8 +30,18 @@ function PlayState:init()
 
 	--momlegs
 	self.momlegs = MomLegs()
-	self.momarms = MomArms()
+	--self.momarms = MomArms()
+	self:generateMomArms()
 
+end
+
+function PlayState:generateMomArms()
+	self.momarms = MomArms()
+	self.momarms.stateMachine = StateMachine{
+		['grab'] = function() return MomGrabState() end,
+		['drop'] = function() return MomDropState() end
+	}
+	self.momarms:changeState('drop')
 end
 
 -- initialized baby here to pass score through states

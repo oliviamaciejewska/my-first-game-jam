@@ -22,6 +22,10 @@ function MomArms:collides(target)
                     self.y + self.height < target.y or self.y > target.y + target.height)
 end
 
+function MomArms:changeState(state, params)
+
+	self.stateMachine:change(state, params)
+end
 
 
 function MomArms:update(dt)
