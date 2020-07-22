@@ -101,7 +101,7 @@ end
 function Baby:render()
 	if self.invulnerable and self.flashTimer > 0.06 then
         self.flashTimer = 0
-        love.graphics.setColor(255, 255, 255, 64)
+        love.graphics.setColor(1, 1, 1, 0.25)
     end
 	--love.graphics.draw(self.image, self.x, self.y)
 	love.graphics.draw(gTextures[self.texture], gFrames[self.texture][self.currentAnimation:getCurrentFrame()],

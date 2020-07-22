@@ -18,6 +18,7 @@ end
 function MomGrabState:update(dt)
 	self.momarms.currentAnimation:update(dt)
 	if self.momarms.currentAnimation.timesPlayed > 0 then
+		
 		self.momarms.currentAnimation.timesPlayed = 0
 		self.momarms.goUp = true
 		self.momarms.dy = -self.momarms.dy
