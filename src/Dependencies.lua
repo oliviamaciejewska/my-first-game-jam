@@ -84,7 +84,7 @@ gFrames = {
 	['momlegs'] = GenerateQuads(gTextures['momlegs'], 256, 400),
 	['momarms'] = GenerateQuads(gTextures['momarms'], 256, 400),
 	['momleft'] = GenerateQuads(gTextures['momleft'], 256, 400),
-	['momright'] = GenerateQuads(gTextures['momright'], 256, 400)
+	['momright'] = GenerateQuads(gTextures['momright'], 256, 399)
 
 }
 

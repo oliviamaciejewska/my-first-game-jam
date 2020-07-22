@@ -8,7 +8,13 @@ function MomDropState:init(momarms)
 		interval = 1
 	}
 	self.momarms.currentAnimation = self.animation
+    self.momarms.collidable = false
 end
+
+--[[
+function MomDropState:collides(target)
+	return false
+end]]
 
 function MomDropState:update(dt)
     --self.momarms.currentAnimation:update(dt)

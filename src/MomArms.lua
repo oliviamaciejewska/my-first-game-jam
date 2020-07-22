@@ -10,20 +10,24 @@ function MomArms:init(def)
     self.x = VIRTUAL_WIDTH / 2 - self.width/2
     self.y = 0 -self.height
     self.texture = 'momright'
-    self.dy = 300
+    self.dy = 200
     self.goUp = false
     self.targetY = 0
     self.babyHeight = 96
     self.stateMachine = def.stateMachine
     self.grabNow = false
 
+    self.collidable = false
     --self.currentAnimation = self.animation
 
 end
 
 function MomArms:collides(target)
-    return not (self.x + self.width < target.x or self.x > target.x + target.width or
-                    self.y + self.height < target.y or self.y > target.y + target.height)
+    if self.collidable == true then
+        return not (self.x + self.width < target.x or self.x > target.x + target.width or
+                        self.y + self.height < target.y or self.y > target.y + target.height)
+    end
+--    self.stateMachine:collides(target)
 end
 
 function MomArms:changeState(state, params)
