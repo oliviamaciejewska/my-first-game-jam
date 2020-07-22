@@ -247,6 +247,16 @@ end
 
 function PlayState:render()
 
+	for j, pair in pairs(self.wallassets) do
+		pair:render()
+	end
+
+	for k, pair in pairs(self.objects) do
+		pair:render()
+		if pair.y + 64 < self.baby.y + 96 then
+			pair.rendered = true
+		end
+	end
 	local health = self.baby.health
 
 	if health == 4 then
@@ -262,24 +272,9 @@ function PlayState:render()
 		})
 	end
 
-
-
-	
 	love.graphics.draw(gTextures['health-bar'], gFrames['health-bar'][healthFrame],
         20, 20)
 	local drawn = false
-
-
-	for j, pair in pairs(self.wallassets) do
-		pair:render()
-	end
-
-	for k, pair in pairs(self.objects) do
-		pair:render()
-		if pair.y + 64 < self.baby.y + 96 then
-			pair.rendered = true
-		end
-	end
 
 	self.momlegs:render()
 
