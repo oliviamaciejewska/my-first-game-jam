@@ -25,10 +25,8 @@ function BabyWalkState:update(dt)
 
 	if love.keyboard.wasPressed('w') and self.baby.y > VIRTUAL_HEIGHT - 192 - self.baby.height + 64 then
 		self.baby.y = self.baby.y - 32
-		--self.momarms.targetY = self.baby.y
 	elseif love.keyboard.wasPressed('s') and self.baby.y + self.baby.height < VIRTUAL_HEIGHT - 32 then
 		self.baby.y = self.baby.y + 32
-		--self.momarms.tagetY = self.baby.y
 	end
 
 	if love.keyboard.wasPressed('space') then
