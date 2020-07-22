@@ -18,7 +18,6 @@ function MomArms:init(def)
     self.grabNow = false
 
     self.collidable = false
-    --self.currentAnimation = self.animation
 
 end
 
@@ -27,7 +26,6 @@ function MomArms:collides(target)
         return not (self.x + self.width < target.x or self.x > target.x + target.width or
                         self.y + self.height < target.y or self.y > target.y + target.height)
     end
---    self.stateMachine:collides(target)
 end
 
 function MomArms:changeState(state, params)
@@ -37,21 +35,7 @@ end
 
 
 function MomArms:update(dt)
---[[
-    if self.y + self.height < self.targetY + self.babyHeight / 2  and self.goUp == false then
-        self.y = self.y + self.dy * dt - ((OBJECT_ACCEL * dt * dt) / 2)
-        if self.y + self.height >= self.targetY + self.babyHeight / 2 then
-            self.goUp = true
-            self.dy = -self.dy
-        end
-    end
-    if self.goUp == true then
-        self.y = self.y + self.dy * dt - ((OBJECT_ACCEL * dt * dt)/2)
-        if self.y <= -400 then
-            self.goUp = false
-            self.dy = -self.dy
-        end
-    end]]
+
     if self.currentAnimation then
 		self.currentAnimation:update(dt)
 	end

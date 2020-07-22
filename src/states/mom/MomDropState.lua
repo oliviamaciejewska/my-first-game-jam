@@ -2,7 +2,7 @@ MomDropState = Class{__includes = BaseState}
 
 function MomDropState:init(momarms)
 	self.momarms = momarms
-    --self.texture = 'momarms'
+
    self.animation = Animation {
 		frames = {1},
 		interval = 1
@@ -11,13 +11,8 @@ function MomDropState:init(momarms)
     self.momarms.collidable = false
 end
 
---[[
-function MomDropState:collides(target)
-	return false
-end]]
 
 function MomDropState:update(dt)
-    --self.momarms.currentAnimation:update(dt)
 	if self.momarms.y + self.momarms.height < self.momarms.targetY + self.momarms.babyHeight / 2  and self.momarms.goUp == false then
         self.momarms.y = self.momarms.y + self.momarms.dy * dt - ((OBJECT_ACCEL * dt * dt) / 2)
         if self.momarms.y + self.momarms.height >= self.momarms.targetY + self.momarms.babyHeight / 2 then
