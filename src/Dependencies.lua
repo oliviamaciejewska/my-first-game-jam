@@ -37,6 +37,7 @@ require 'src.states.baby.BabyDodgeState'
 --mom states
 require 'src.states.mom.MomDropState'
 require 'src.states.mom.MomGrabState'
+require 'src.states.mom.MomRestState'
 
 gTextures = {
 	['walk'] = love.graphics.newImage('graphics/babyspritesheet.png'),

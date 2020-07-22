@@ -31,23 +31,32 @@ function PlayState:init()
 	--momlegs
 	self.momlegs = MomLegs()
 	--self.momarms = MomArms()
-	self:generateMomArms()
+	--self:generateMomArms()
 
 end
-
+--[[
 function PlayState:generateMomArms()
 	self.momarms = MomArms()
 	self.momarms.stateMachine = StateMachine{
-		['grab'] = function() return MomGrabState() end,
-		['drop'] = function() return MomDropState() end
+	['drop'] = function() return MomDropState(self.momarms) end,
+		['grab'] = function() return MomGrabState(self.momarms) end
 	}
 	self.momarms:changeState('drop')
 end
+]]
 
 -- initialized baby here to pass score through states
 function PlayState:enter(params)
 	local scores = params.score
-
+	--self:generateMomArms()
+	self.momarms = MomArms({
+		stateMachine = StateMachine {
+		['rest'] = function() return MomRestState(self.momarms) end,
+		['drop'] = function() return MomDropState(self.momarms) end,
+		['grab'] = function() return MomGrabState(self.momarms) end
+		}
+	})
+	self.momarms:changeState('rest')
 	self.baby = Baby({
 		score = scores,
 		stateMachine = StateMachine {
@@ -62,6 +71,13 @@ function PlayState:enter(params)
 end
 
 function PlayState:update(dt)
+
+	local grabChance = math.random(100)
+
+	if grabChance == 1 then
+		self.momarms.grabNow = true
+	end
+
 
 	--chance of heal spawning
 	local healChance = math.random(50)
@@ -97,7 +113,7 @@ function PlayState:update(dt)
 
 	--toy spawn logic
 	self.timer = self.timer + dt
-	
+
 	if self.score < 250 then
 
 		if	self.timer > spawnTime then

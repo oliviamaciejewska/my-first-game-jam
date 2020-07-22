@@ -2,22 +2,25 @@ MomGrabState = Class{__includes = BaseState}
 
 function MomGrabState:init(momarms)
 	self.momarms = momarms
-    self.momarms.texture = 
+   -- self.momarms.texture = 'momright'
+    self.animation = Animation {
+		frames = {2,3,4,5,6,7,8},
+		looping = false,
+		interval = 0.08
+	}
+    self.momarms.currentAnimation = self.animation
+end
+
+function MomGrabState:enter(params)
+    self.momarms.currentAnimation:refresh()
 end
 
 function MomGrabState:update(dt)
-	if self.momarms.y + self.momarms.height < self.momarms.targetY + self.momarms.babyHeight / 2  and self.momarms.goUp == false then
-        self.momarms.y = self.momarms.y + self.momarms.dy * dt - ((OBJECT_ACCEL * dt * dt) / 2)
-        if self.momarms.y + self.momarms.height >= self.momarms.targetY + self.momarms.babyHeight / 2 then
-            self.momarms.goUp = true
-            self.momarms.dy = -self.momarms.dy
-        end
-    end
-    if self.momarms.goUp == true then
-        self.momarms.y = self.momarms.y + self.momarms.dy * dt - ((OBJECT_ACCEL * dt * dt)/2)
-        if self.momarms.y <= -400 then
-            self.momarms.goUp = false
-            self.momarms.dy = -self.momarms.dy
-        end
-    end
+	self.momarms.currentAnimation:update(dt)
+	if self.momarms.currentAnimation.timesPlayed > 0 then
+		self.momarms.currentAnimation.timesPlayed = 0
+		self.momarms.goUp = true
+		self.momarms.dy = -self.momarms.dy
+		self.momarms:changeState('drop')
+	end
 end

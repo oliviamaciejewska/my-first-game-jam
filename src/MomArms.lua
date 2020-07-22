@@ -4,16 +4,20 @@
 
 MomArms = Class{}
 
-function MomArms:init()
+function MomArms:init(def)
     self.width = 256
     self.height = 400
     self.x = VIRTUAL_WIDTH / 2 - self.width/2
     self.y = 0 -self.height
-    self.texture = 'momarms'
+    self.texture = 'momright'
     self.dy = 300
     self.goUp = false
     self.targetY = 0
     self.babyHeight = 96
+    self.stateMachine = def.stateMachine
+    self.grabNow = false
+
+    --self.currentAnimation = self.animation
 
 end
 
@@ -29,7 +33,7 @@ end
 
 
 function MomArms:update(dt)
-
+--[[
     if self.y + self.height < self.targetY + self.babyHeight / 2  and self.goUp == false then
         self.y = self.y + self.dy * dt - ((OBJECT_ACCEL * dt * dt) / 2)
         if self.y + self.height >= self.targetY + self.babyHeight / 2 then
@@ -43,11 +47,16 @@ function MomArms:update(dt)
             self.goUp = false
             self.dy = -self.dy
         end
-    end
+    end]]
+    if self.currentAnimation then
+		self.currentAnimation:update(dt)
+	end
+
+	self.stateMachine:update(dt)
 end
 
 function MomArms:render()
-    love.graphics.draw(gTextures[self.texture], gFrames[self.texture][1],
+    love.graphics.draw(gTextures[self.texture], gFrames[self.texture][self.currentAnimation:getCurrentFrame()],
         self.x, self.y,
 		0, 1 or -1, 1)
 
