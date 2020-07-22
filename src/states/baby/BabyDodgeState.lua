@@ -4,7 +4,7 @@ function BabyDodgeState:init(baby)
 	self.baby = baby
 	self.baby.texture = 'dodge' 
 	self.animation = Animation {
-		frames = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16},
+		frames = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20},
 		looping = false,
 		interval = 0.08
 	}
