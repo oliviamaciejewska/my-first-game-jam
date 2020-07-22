@@ -90,7 +90,6 @@ gSounds = {
 	['cry'] = love.audio.newSource('sounds/cry.wav', 'static'),
 	['choochoo'] = love.audio.newSource('sounds/choochoo.wav', 'static'),
 	['blocks'] = love.audio.newSource('sounds/blocks.wav', 'static'),
-	['yay'] = love.audio.newSource('sounds/yay.wav', 'static'),
 	['hi'] = love.audio.newSource('sounds/hi.wav', 'static')
 }
 

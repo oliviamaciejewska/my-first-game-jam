@@ -30,11 +30,10 @@ function MomArms:update(dt)
         self.y = self.y + self.dy * dt - ((OBJECT_ACCEL * dt * dt) / 2)
         if self.y + self.height >= self.targetY + self.babyHeight / 2 then
             self.goUp = true
-            --self.dy = -self.dy
+            self.dy = -self.dy
         end
     end
     if self.goUp == true then
-        self.dy = -300
         self.y = self.y + self.dy * dt - ((OBJECT_ACCEL * dt * dt)/2)
         if self.y <= -400 then
             self.goUp = false
