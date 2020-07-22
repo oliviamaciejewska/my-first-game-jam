@@ -277,7 +277,9 @@ function PlayState:render()
 	local drawn = false
 
 	self.momlegs:render()
-
+	love.graphics.draw(gTextures['momleft'], gFrames['momleft'][self.momarms.currentAnimation:getCurrentFrame()],
+		self.momarms.x, self.momarms.y,
+		0, 1 or -1, 1)
 	self.baby:render()
 	for i, pair in pairs(self.objects) do
 		if not pair.rendered then

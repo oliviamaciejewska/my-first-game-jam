@@ -9,6 +9,8 @@ function MomGrabState:init(momarms)
 	}
     self.momarms.currentAnimation = self.animation
 	self.momarms.collidable = true
+
+	self.momarms.inRest = false
 end
 
 function MomGrabState:enter(params)

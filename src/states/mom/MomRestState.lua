@@ -8,6 +8,8 @@ function MomRestState:init(momarms)
 	}
 	self.momarms.currentAnimation = self.animation
 	self.momarms.collidable = false
+
+	self.momarms.inRest = true
 end
 
 

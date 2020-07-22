@@ -10,13 +10,14 @@ function MomArms:init(def)
     self.x = VIRTUAL_WIDTH / 2 - self.width/2
     self.y = 0 -self.height
     self.texture = 'momright'
-    self.dy = 200
+    self.dy = 300
     self.goUp = false
     self.targetY = 0
     self.babyHeight = 96
     self.stateMachine = def.stateMachine
     self.grabNow = false
 
+    self.inRest = true
     self.collidable = false
 
 end
