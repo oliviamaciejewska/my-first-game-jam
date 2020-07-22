@@ -41,7 +41,7 @@ function PlayState:enter(params)
 	self.baby = Baby({
 		score = scores,
 		stateMachine = StateMachine {
-		['walk'] = function() return BabyWalkState(self.baby) end,
+		['walk'] = function() return BabyWalkState(self.baby, self.momarms) end,
 		['dodge'] = function() return BabyDodgeState(self.baby) end
 		}
 	})
@@ -214,12 +214,35 @@ function PlayState:update(dt)
 
 	self.score = self.score + (dt * 10)
 
-	self.baby:update(dt)
 	self.momlegs:update(dt)
 	self.momarms:update(dt)
+	self.baby:update(dt)
 end
 
 function PlayState:render()
+
+	local health = self.baby.health
+
+	if health == 4 then
+		healthFrame = 4
+	elseif health == 3 then
+		healthFrame = 3
+	elseif health == 2 then
+		healthFrame = 2
+	elseif health == 1 then
+		healthFrame = 1
+		gStateMachine:change('game-over', {
+			score = self.score
+		})
+	end
+
+
+
+	
+	love.graphics.draw(gTextures['health-bar'], gFrames['health-bar'][healthFrame],
+        20, 20)
+	local drawn = false
+
 
 	for j, pair in pairs(self.wallassets) do
 		pair:render()
@@ -243,7 +266,7 @@ function PlayState:render()
 	
 	self.momarms:render()
 
-	local health = self.baby.health
+	--[[local health = self.baby.health
 
 	if health == 4 then
 		healthFrame = 4
@@ -263,7 +286,7 @@ function PlayState:render()
 	
 	love.graphics.draw(gTextures['health-bar'], gFrames['health-bar'][healthFrame],
         20, 20)
-	local drawn = false
+	local drawn = false]]
 
 
 	-- adding baby scores

@@ -22,6 +22,7 @@ require 'src.GameObject'
 require 'src.game_objects'
 require 'src.MomLegs'
 require 'src.MomArms'
+require 'src.Hitbox'
 
 --gameStates
 require 'src.states.BaseState'

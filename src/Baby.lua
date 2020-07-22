@@ -41,7 +41,7 @@ function Baby:init(def)
 end
 
 function Baby:damage()
-	if self.health > 0 then
+	if self.health > 0 and not self.invulnerable then
 		self.health = self.health - 1
 	end
 end
@@ -77,6 +77,7 @@ function Baby:changeState(state, params)
 end
 
 function Baby:update(dt)
+	
 
 	if self.invulnerable then
 		self.flashTimer = self.flashTimer + dt
