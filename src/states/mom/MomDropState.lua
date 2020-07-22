@@ -7,8 +7,6 @@ function MomDropState:init(momarms)
 		frames = {1},
 		interval = 1
 	}
-
-    self.momarms.inRest = false
 	self.momarms.currentAnimation = self.animation
     self.momarms.collidable = false
 end

@@ -17,7 +17,6 @@ function MomArms:init(def)
     self.stateMachine = def.stateMachine
     self.grabNow = false
 
-    self.inRest = true
     self.collidable = false
 
 end
