@@ -1,7 +1,7 @@
 # My First Game Jam
 Game submission for My First Game Jam Summer 2020
 
-https://itch.io/jam/my-first-game-jam-summer-2020
+moopmoopmoop.itch.io/diaperchange
 
 ## Premise of Game
 The theme of the game jam is **Change**. We decided to take the simple meaning of change, and create a game where a mother chases her baby trying to change his diaper.
